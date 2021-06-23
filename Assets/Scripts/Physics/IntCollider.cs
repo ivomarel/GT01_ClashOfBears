@@ -23,4 +23,9 @@ public class IntCollider : MonoBehaviour
     {
         IntPhysics.colliders.Remove(this);
     }
+
+    public void OnIntTriggerStay (IntCollider otherColl)
+    {
+        Debug.Log($"{this.name} is colliding with {otherColl.name}");
+    }
 }

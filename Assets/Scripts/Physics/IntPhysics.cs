@@ -13,20 +13,26 @@ public class IntPhysics : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for (int i = 0; i < colliders.Count; i++)
+        for (int i = 0; i < colliders.Count-1; i++)
         {
-            for (int j = 0; j < colliders.Count; j++)
+            /* i.e. with 4 colliders
+              1 -> 2
+              1 -> 3
+              1 -> 4
+              2 -> 3
+              2 -> 4
+              3 -> 4
+             */
+            for (int j = i + 1; j < colliders.Count; j++)
             {                
                 IntCollider c1 = colliders[i];
                 IntCollider c2 = colliders[j];
-                //Avoid checking intersection with itself
-                if (c1 != c2)
+                
+                if (Intersect(c1, c2))
                 {
-                    if (Intersect(c1, c2))
-                    {
-                        Debug.Log("Intersection!");
-                    }
-                }                
+                    c1.OnIntTriggerStay(c2);
+                    c2.OnIntTriggerStay(c1);
+                }              
             }
         }
     }
@@ -38,6 +44,9 @@ public class IntPhysics : MonoBehaviour
         {
             //TODO We can optimize this by casting only once (rather than casting once using 'is' and another time using 'as')
             return SphereToSphere(c1 as IntSphereCollider, c2 as IntSphereCollider);
+        } else if (c1 is IntBoxCollider && c2 is IntBoxCollider)
+        {
+            return AABBtoAABB(c1 as IntBoxCollider, c2 as IntBoxCollider);
         }
         return false;
     }
@@ -53,6 +62,13 @@ public class IntPhysics : MonoBehaviour
         //Rather than getting the magnitude (which requires a square root operation), we get the squared magnitude
         //Since we compare it to radiusCombined squared, this will give us the same result
         return offset.sqrMagnitude <= radiusCombined * radiusCombined;
+    }
+
+    private static bool AABBtoAABB(IntBoxCollider c1, IntBoxCollider c2)
+    {
+        return (c1.min.x <= c2.max.x && c1.max.x >= c2.min.x) &&
+                 (c1.min.y <= c2.max.y && c1.max.y >= c2.min.y) &&
+                 (c1.min.z <= c2.max.z && c1.max.z >= c2.min.z);
     }
 
 
