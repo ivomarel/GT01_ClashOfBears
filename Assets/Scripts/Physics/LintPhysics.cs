@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntPhysics : MonoBehaviour
+public class LintPhysics : MonoBehaviour
 {
-    public static List<IntCollider> colliders;
+    public static List<LintCollider> colliders;
 
     private void Awake()
     {
-        colliders = new List<IntCollider>();
+        colliders = new List<LintCollider>();
     }
 
     private void FixedUpdate()
@@ -25,8 +25,8 @@ public class IntPhysics : MonoBehaviour
              */
             for (int j = i + 1; j < colliders.Count; j++)
             {                
-                IntCollider c1 = colliders[i];
-                IntCollider c2 = colliders[j];
+                LintCollider c1 = colliders[i];
+                LintCollider c2 = colliders[j];
                 
                 if (Intersect(c1, c2))
                 {
@@ -37,24 +37,24 @@ public class IntPhysics : MonoBehaviour
         }
     }
 
-    private static bool Intersect (IntCollider c1, IntCollider c2)
+    private static bool Intersect (LintCollider c1, LintCollider c2)
     {
         //'is' means we try and cast it to an IntSphereCollider and return true if successfully cast to it
-        if (c1 is IntSphereCollider && c2 is IntSphereCollider)
+        if (c1 is LintSphereCollider && c2 is LintSphereCollider)
         {
             //TODO We can optimize this by casting only once (rather than casting once using 'is' and another time using 'as')
-            return SphereToSphere(c1 as IntSphereCollider, c2 as IntSphereCollider);
-        } else if (c1 is IntBoxCollider && c2 is IntBoxCollider)
+            return SphereToSphere(c1 as LintSphereCollider, c2 as LintSphereCollider);
+        } else if (c1 is LintBoxCollider && c2 is LintBoxCollider)
         {
-            return AABBtoAABB(c1 as IntBoxCollider, c2 as IntBoxCollider);
+            return AABBtoAABB(c1 as LintBoxCollider, c2 as LintBoxCollider);
         }
         return false;
     }
 
-    private static bool SphereToSphere(IntSphereCollider c1, IntSphereCollider c2)
+    private static bool SphereToSphere(LintSphereCollider c1, LintSphereCollider c2)
     {
         //Get the offset between the 2 objects
-        IntVector3 offset = c1.intTransform.position - c2.intTransform.position;
+        LintVector3 offset = c1.intTransform.position - c2.intTransform.position;
         
         //Get the two radius' combined
         uint radiusCombined = c1.radius + c2.radius;
@@ -64,7 +64,7 @@ public class IntPhysics : MonoBehaviour
         return offset.sqrMagnitude <= radiusCombined * radiusCombined;
     }
 
-    private static bool AABBtoAABB(IntBoxCollider c1, IntBoxCollider c2)
+    private static bool AABBtoAABB(LintBoxCollider c1, LintBoxCollider c2)
     {
         return (c1.min.x <= c2.max.x && c1.max.x >= c2.min.x) &&
                  (c1.min.y <= c2.max.y && c1.max.y >= c2.min.y) &&

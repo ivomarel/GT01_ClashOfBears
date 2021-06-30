@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntBoxCollider : IntCollider
+public class LintBoxCollider : LintCollider
 {
-    public IntVector3 extents = new IntVector3((int)IntMath.Float2Int, (int)IntMath.Float2Int, (int)IntMath.Float2Int);
+    public LintVector3 extents = new LintVector3((int)LintMath.Float2Lint, (int)LintMath.Float2Lint, (int)LintMath.Float2Lint);
 
-    public IntVector3 min
+    public LintVector3 min
     {
         get
         {
@@ -14,7 +14,7 @@ public class IntBoxCollider : IntCollider
         }
     }
 
-    public IntVector3 max
+    public LintVector3 max
     {
         get
         {
