@@ -10,11 +10,11 @@ public class MathDebug : MonoBehaviour
     private void OnGUI()
     {
         //Attempted same result (as a Lint)
-        GUILayout.Label(LintMath.Sin(myLint).ToString());
+        GUILayout.Label(LintMath.Cos(myLint).ToString());
 
        // GUILayout.Label(LintMath.Pow(myLint, power).ToString());
 
         //Desired result (as a float)
-        GUILayout.Label(Mathf.Sin(myLint * LintMath.Lint2Float).ToString());
+        GUILayout.Label(Mathf.Cos(myLint * LintMath.Lint2Float).ToString());
     }
 }

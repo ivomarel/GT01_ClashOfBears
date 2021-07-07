@@ -73,7 +73,11 @@ public struct LintVector3
         => new LintVector3(a.x + b.x, a.y + b.y, a.z + b.z);
 
     public static LintVector3 operator *(LintVector3 a, float b)
-     => new LintVector3((int)(a.x * b), (int)(a.y * b), (int)(a.z * b));
+     => new LintVector3((long)(a.x * b), (long)(a.y * b), (long)(a.z * b));
+
+    public static LintVector3 operator *(LintVector3 a, Lint l)
+    => new LintVector3(a.x * l, a.y * l, a.z * l);
+
 
     public static LintVector3 operator -(LintVector3 a, LintVector3 b)
         => new LintVector3(a.x - b.x, a.y - b.y, a.z - b.z);
