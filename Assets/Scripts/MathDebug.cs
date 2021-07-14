@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MathDebug : MonoBehaviour
+public class MathDebug : LintBehaviour
 {
     //public Lint myLint;
    // public int power;
@@ -15,10 +15,9 @@ public class MathDebug : MonoBehaviour
         // GUILayout.Label(LintMath.Pow(myLint, power).ToString());
 
         //Desired result (as a float)
-        //  GUILayout.Label((Mathf.Asin(myLint * LintMath.Lint2Float) * LintMath.Float2Lint).ToString());
+        // GUILayout.Label((Mathf.Asin(myLint * LintMath.Lint2Float) * LintMath.Float2Lint).ToString());
 
-        LintMatrix coolMatrix = new LintMatrix();
-        coolMatrix[2, 2] = 14;
+        LintMatrix coolMatrix = LintMatrix.CreateFromEuler(lintTransform.radians);        
 
         Draw(transform.localToWorldMatrix);
 

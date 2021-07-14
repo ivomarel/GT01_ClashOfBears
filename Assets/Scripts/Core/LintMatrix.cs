@@ -54,6 +54,16 @@ public struct LintMatrix
 
         LintMatrix lmx = new LintMatrix();
 
+        lmx[0, 0] = cz * cy + sz * sx * sy;
+        lmx[1, 0] = sz * cx;
+        lmx[2, 0] = -cz * sy + cy * sz * sx;
+        lmx[0, 1] = -sz * cy + cz * sx * sy;
+        lmx[1, 1] = cz * cx;
+        lmx[2, 1] = sz * sy + cz * sx * cy;
+        lmx[0, 2] = cx * sy;
+        lmx[1, 2] = -sx;
+        lmx[2, 2] = cx * cy;
+
         return lmx;
     }
 }
