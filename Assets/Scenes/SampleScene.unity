@@ -508,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &894607717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,13 +584,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894607716}
-  m_LocalRotation: {x: 0.53343254, y: -0.0023961812, z: -0.5477817, w: 0.6444992}
-  m_LocalPosition: {x: -1.42, y: 1.497, z: -1.147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 43.233, y: -53.743, z: -103.431}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &894607721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,11 +605,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -141
+      value: 0
     y:
-      value: 149
+      value: 0
     z:
-      value: -114
+      value: 0
   radians:
     x:
       value: 0
@@ -629,9 +629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e19a14d38b372f418b0fc3df6a57277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLint:
-    value: 161
-  power: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4
+      value: 16.92
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -736,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.77
+      value: -17.97
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -769,6 +766,10 @@ PrefabInstance:
     - target: {fileID: 545557132506092585, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_Name
       value: Soldier (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 545557132506092585, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
@@ -813,11 +814,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: 54000
+      value: 169200
     y:
       value: 0
     z:
-      value: -67699
+      value: -179699
   radians:
     x:
       value: 0
@@ -825,6 +826,18 @@ MonoBehaviour:
       value: 57355
     z:
       value: 0
+--- !u!114 &1122572284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122572280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e19a14d38b372f418b0fc3df6a57277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1239441402
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,11 +954,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -20
+      value: -2071
     y:
-      value: 56
+      value: 5674
     z:
-      value: 0
+      value: -90
   radians:
     x:
       value: 0
@@ -1009,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -8.12
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1017,7 +1030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 545557132506092582, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1051,6 +1064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 545557132506092585, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6027770145523fb4e9a2d4330e100e2b, type: 3}
 --- !u!1 &1635147334 stripped
@@ -1072,11 +1089,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: 0
+      value: -81199
     y:
       value: 0
     z:
-      value: 0
+      value: 182999
   radians:
     x:
       value: 0
@@ -1099,7 +1116,7 @@ MonoBehaviour:
   rotateSpeed:
     value: 150
   moveSpeed:
-    value: 1
+    value: 250
   target: {fileID: 1122572282}
 --- !u!1 &2059520823
 GameObject:
