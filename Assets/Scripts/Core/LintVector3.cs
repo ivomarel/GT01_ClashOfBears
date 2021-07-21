@@ -49,7 +49,12 @@ public struct LintVector3
 
     #endregion
 
-    
+    public static Lint Dot (LintVector3 a, LintVector3 b)
+    {
+        return a.x * b.x + a.y * b.y + a.z * b.z;
+    }
+
+
     public Lint sqrMagnitude
     {
         get
@@ -67,6 +72,24 @@ public struct LintVector3
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    public Lint magnitude
+    {
+        get
+        {
+            return LintMath.Sqrt(sqrMagnitude);
+        }
+    }
+
+    public LintVector3 normalized
+    {
+        get
+        {
+            Lint m = magnitude;
+            LintVector3 n = new LintVector3(x / m, y / m, z / m);
+            return n;
+        }
     }
 
     public static LintVector3 operator +(LintVector3 a, LintVector3 b)

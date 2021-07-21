@@ -30,6 +30,11 @@ public class Soldier : LintBehaviour
             lintTransform.position += dirToTarget * moveSpeed;
         }
 
-    } 
+    }
+
+    private void OnLintTriggerEnter (LintCollider c)
+    {
+        Debug.Log(1230);
+    }
     
 }

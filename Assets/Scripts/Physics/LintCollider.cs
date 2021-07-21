@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LintCollider : MonoBehaviour
 {
-    public LintTransform intTransform
+    public LintTransform lintTransform
     {
         get
         {

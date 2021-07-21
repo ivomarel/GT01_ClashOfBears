@@ -8,6 +8,7 @@ public static class LintMath
     //These need to match!
     public const long Float2Lint = 10000;
     public const float Lint2Float = 0.0001f;
+    private const long SqrtFloat2Lint = 100;
 
     public const long HALF_PI = 15708; 
     public const long PI = 31416;
@@ -20,6 +21,28 @@ public static class LintMath
             return 1;
         }
         return v * Factorial(v-1);
+    }
+    public static Lint Sqrt(Lint num)
+    {
+        long res = 0;
+        long bit = 1 << 30;
+
+        // "bit" starts at the highest power of four <= the argument.
+        while (bit > num)
+            bit >>= 2;
+
+        while (bit != 0)
+        {
+            if (num >= res + bit)
+            {
+                num -= res + bit;
+                res = (res >> 1) + bit;
+            }
+            else
+                res >>= 1;
+            bit >>= 2;
+        }
+        return res * SqrtFloat2Lint;
     }
 
     public static Lint Pow (Lint l, int p)

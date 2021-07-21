@@ -10,7 +10,7 @@ public class LintBoxCollider : LintCollider
     {
         get
         {
-            return this.intTransform.position - this.extents;
+            return this.lintTransform.position - this.extents;
         }
     }
 
@@ -18,7 +18,7 @@ public class LintBoxCollider : LintCollider
     {
         get
         {
-            return this.intTransform.position + this.extents;
+            return this.lintTransform.position + this.extents;
         }
     }
 
@@ -32,17 +32,36 @@ public class LintBoxCollider : LintCollider
         {
             Gizmos.DrawRay(this.transform.position, side);
         }
+
+        foreach (LintVector3 corner in GetCorners())
+        {
+            Gizmos.DrawSphere(corner, 0.1f);
+        }
     }
 
     public LintVector3[] GetSides ()
-    {
-        LintMatrix mx = LintMatrix.CreateFromEuler(this.intTransform.radians);
+    {        
+        LintMatrix mx = this.lintTransform.rotationMatrix;
 
         return new LintVector3[]
         {
             new LintVector3(mx[0,0], mx [1,0], mx[2,0]), //First column = Right Vector
-            new LintVector3(mx[0,1], mx [1,1], mx[2,1]), //Second column = Up Vector
+            //new LintVector3(mx[0,1], mx [1,1], mx[2,1]), //Second column = Up Vector
             new LintVector3(mx[0,2], mx [1,2], mx[2,2])  //Third column = Forward Vector
+        };
+    }
+
+    public LintVector3[] GetCorners ()
+    {
+        LintMatrix mx = this.lintTransform.rotationMatrix;
+
+        //Multiplying any point in space by the rotation matrix, will give us that point as it were rotated by that matrix
+        return new LintVector3[]
+        {
+            lintTransform.position + mx * new LintVector3(extents.x, extents.y, extents.z),
+            lintTransform.position + mx * new LintVector3(extents.x, extents.y, -extents.z),
+            lintTransform.position + mx * new LintVector3(-extents.x, extents.y, -extents.z),
+            lintTransform.position + mx * new LintVector3(-extents.x, extents.y, extents.z)
         };
     }
 }

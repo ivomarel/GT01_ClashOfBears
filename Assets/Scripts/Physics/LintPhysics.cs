@@ -32,7 +32,7 @@ public class LintPhysics : MonoBehaviour
                 {
                     c1.OnIntTriggerStay(c2);
                     c2.OnIntTriggerStay(c1);
-                }              
+                }
             }
         }
     }
@@ -46,7 +46,7 @@ public class LintPhysics : MonoBehaviour
             return SphereToSphere(c1 as LintSphereCollider, c2 as LintSphereCollider);
         } else if (c1 is LintBoxCollider && c2 is LintBoxCollider)
         {
-            return AABBtoAABB(c1 as LintBoxCollider, c2 as LintBoxCollider);
+            return OBBtoOBB(c1 as LintBoxCollider, c2 as LintBoxCollider);
         }
         return false;
     }
@@ -54,7 +54,7 @@ public class LintPhysics : MonoBehaviour
     private static bool SphereToSphere(LintSphereCollider c1, LintSphereCollider c2)
     {
         //Get the offset between the 2 objects
-        LintVector3 offset = c1.intTransform.position - c2.intTransform.position;
+        LintVector3 offset = c1.lintTransform.position - c2.lintTransform.position;
         
         //Get the two radius' combined
         uint radiusCombined = c1.radius + c2.radius;
@@ -71,5 +71,69 @@ public class LintPhysics : MonoBehaviour
                  (c1.min.z <= c2.max.z && c1.max.z >= c2.min.z);
     }
 
+    private static bool OBBtoOBB(LintBoxCollider c1, LintBoxCollider c2)
+    {
+        //This will contain every side of the box
+        //TODO replace List with Array
+        List<LintVector3> sides = new List<LintVector3>();
 
+        LintVector3[] c1Sides = c1.GetSides();
+        LintVector3[] c2Sides = c2.GetSides();
+
+        sides.AddRange(c1Sides);
+        sides.AddRange(c2Sides);
+
+        LintVector3[] c1Corners = c1.GetCorners();
+        LintVector3[] c2Corners = c2.GetCorners();
+
+        for (int i = 0; i < sides.Count; i++)
+        {
+            LintVector3 side = sides[i];
+
+            MinMax c1MinMax = GetProjectedMinMax(side, c1Corners);
+            MinMax c2MinMax = GetProjectedMinMax(side, c2Corners);
+
+            //When one of the minmaxes does NOT overlap, there is no collision
+            //No overlap = we can put an 'axis' between them (Separating Axis Theorem)
+            if (!c1MinMax.Overlaps(c2MinMax))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    private static MinMax GetProjectedMinMax (LintVector3 side, LintVector3[] corners)
+    {
+        MinMax m = new MinMax();
+        m.min = long.MaxValue;
+        m.max = long.MinValue;
+
+        foreach (LintVector3 corner in corners)
+        {
+            Lint positionOnLine = LintVector3.Dot(corner, side);
+            if (positionOnLine > m.max)
+            {
+                m.max = positionOnLine;
+            }
+            if (positionOnLine < m.min)
+            {
+                m.min = positionOnLine;
+            }
+        }
+        return m;
+    }
+}
+
+public struct MinMax
+{
+    public Lint min;
+    public Lint max;
+
+    public bool Overlaps (MinMax other)
+    {
+        return !(this.min > other.max || this.max < other.min);
+    }
 }

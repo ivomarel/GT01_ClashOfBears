@@ -41,6 +41,15 @@ public struct LintMatrix
         return sb.ToString();
     }
 
+    public static LintVector3 operator *(LintMatrix mx, LintVector3 v)
+    {
+        LintVector3 r = new LintVector3();
+        r.x = v.x * mx[0, 0] + v.y * mx[0, 1] + v.z * mx[0, 2];
+        r.y = v.x * mx[1, 0] + v.y * mx[1, 1] + v.z * mx[1, 2];
+        r.z = v.x * mx[2, 0] + v.y * mx[2, 1] + v.z * mx[2, 2];
+        return r;
+    }
+
   
     public static LintMatrix CreateFromEuler (LintVector3 euler)
     {

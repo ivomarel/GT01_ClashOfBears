@@ -8,6 +8,16 @@ public class LintTransform : MonoBehaviour
     public LintVector3 position;
     public LintVector3 radians;
 
+    public LintMatrix rotationMatrix
+    {
+        //TODO cache & optimize
+        get
+        {
+            return LintMatrix.CreateFromEuler(radians);
+        }
+    }
+
+
     private void Update()
     {
         if (Application.isPlaying)
