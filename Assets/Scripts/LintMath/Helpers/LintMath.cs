@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class LintMath 
-{
-    
+{    
     //These need to match!
     public const long Float2Lint = 10000;
     public const float Lint2Float = 0.0001f;
@@ -74,7 +73,7 @@ public static class LintMath
     /// <param name="angle"></param>
     /// <returns></returns>
     private static Lint ClampAngle(Lint angle)
-    {
+    {        
         //9 % 4 = 1
         //860 % 360 = 140
 
@@ -204,8 +203,7 @@ public static class LintMath
         {
             Debug.LogError($"{l} is greater than maximum allowed {Float2Lint} in Asin. Returning 0");
             return 0;
-        }
-            
+        }            
 
         //Increase number of loops for higher precision
         int nLoops = 5;

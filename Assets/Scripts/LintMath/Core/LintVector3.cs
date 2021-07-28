@@ -87,6 +87,12 @@ public struct LintVector3
         get
         {
             Lint m = magnitude;
+
+            if (m == 0)
+            {
+                return zero;
+            }
+
             LintVector3 n = new LintVector3(x / m, y / m, z / m);
             return n;
         }

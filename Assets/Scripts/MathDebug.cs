@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class MathDebug : LintBehaviour
 {
     public LintVector3 v1;
     public LintVector3 v2;
-    //public Lint myLint;
-   // public int power;
+
 
     private void OnGUI()
     {
