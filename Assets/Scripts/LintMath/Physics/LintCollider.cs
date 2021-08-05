@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LintCollider : MonoBehaviour
 {
+    public HashSet<LintCollider> CurrentTriggers;
+
+    
     public LintTransform lintTransform
     {
         get
@@ -22,6 +25,11 @@ public class LintCollider : MonoBehaviour
     private void OnDisable()
     {
         LintPhysics.colliders.Remove(this);
+    }
+    
+    private void Start()
+    {
+        CurrentTriggers = new HashSet<LintCollider>();
     }
 
     public void OnIntTriggerStay (LintCollider otherColl)

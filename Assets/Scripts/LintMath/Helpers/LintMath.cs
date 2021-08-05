@@ -21,6 +21,17 @@ public static class LintMath
         }
         return v * Factorial(v-1);
     }
+    
+    public static Lint Max (Lint l1, Lint l2)
+    {
+        return (l1 > l2) ? l1 : l2;
+    }
+
+    public static Lint Min(Lint l1, Lint l2)
+    {
+        return (l1 < l2) ? l1 : l2;
+    }
+    
     public static Lint Sqrt(Lint num)
     {
         long res = 0;

@@ -53,6 +53,15 @@ public struct LintVector3
     {
         return a.x * b.x + a.y * b.y + a.z * b.z;
     }
+    
+    public static LintVector3 Cross (LintVector3 lhs, LintVector3 rhs)
+    {
+        LintVector3 v = new LintVector3();
+        v.x = lhs.y * rhs.z - lhs.z * rhs.y;
+        v.y = lhs.z * rhs.x - lhs.x * rhs.z;
+        v.z = lhs.x * rhs.y - lhs.y * rhs.x;
+        return v;
+    }
 
 
     public Lint sqrMagnitude

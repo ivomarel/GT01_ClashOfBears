@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LintSphereCollider : LintCollider
 {
-    public uint radius;
+    public Lint radius = 5000;
 
     private void OnDrawGizmosSelected()
     {
