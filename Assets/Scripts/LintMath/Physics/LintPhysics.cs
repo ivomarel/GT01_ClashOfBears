@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LintPhysics : MonoBehaviour
+public class LintPhysics : LintBehaviour
 {
     public static List<LintCollider> colliders;
     
@@ -14,9 +14,10 @@ public class LintPhysics : MonoBehaviour
         colliders = new List<LintCollider>();
     }
 
-    private void FixedUpdate()
+    public override void Step()
     {
-        //Resetting all triggers, so we can detect afterwards if they did trigger again this frame
+        base.Step();
+
         foreach (CollisionPair pair in triggerMap.Values)
         {
             pair.isColliding = false;
