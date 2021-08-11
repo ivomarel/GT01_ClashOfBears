@@ -42,7 +42,7 @@ public class LintBehaviour : MonoBehaviour
         invokeMethods.AddLast(m);
     }
 
-    protected virtual void FixedUpdate()
+    public virtual void Step()
     {
         //Check greater than in case someone calls Linvoke with 0 delay
         while (invokeMethods.Count > 0 && invokeMethods.First.Value.timeToRun <= LintTime.time)
