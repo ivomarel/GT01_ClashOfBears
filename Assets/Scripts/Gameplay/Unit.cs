@@ -45,18 +45,19 @@ public class Unit : LintBehaviour
         return dirToTarget.sqrMagnitude < attackRange * attackRange;
     }
 
-    protected override void FixedUpdate()
+    public override void Step()
     {
-        base.FixedUpdate();
+        base.Step();
+
         /*
-        lintTransform.radians.y += rotateSpeed;
-
-        LintVector3 direction = new LintVector3();
-        direction.z = LintMath.Cos(lintTransform.radians.y);
-        direction.x = LintMath.Sin(lintTransform.radians.y);
-
-        lintTransform.position += direction * moveSpeed;
-        */
+            lintTransform.radians.y += rotateSpeed;
+    
+            LintVector3 direction = new LintVector3();
+            direction.z = LintMath.Cos(lintTransform.radians.y);
+            direction.x = LintMath.Sin(lintTransform.radians.y);
+    
+            lintTransform.position += direction * moveSpeed;
+            */
         target = GetClosestTarget();
 
         if (target != null)
@@ -90,10 +91,13 @@ public class Unit : LintBehaviour
 
     protected virtual void DoDamage()
     {
-        target.OnHit(attackPower);
+        if (target != null)
+        {
+            target.OnHit(attackPower);
+        }
     }
 
-    protected virtual void OnHit(int amount)
+    public virtual void OnHit(int amount)
     {
         health -= amount;
         if (health <= 0)

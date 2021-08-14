@@ -5,9 +5,9 @@ using UnityEngine;
 public class Arrow : LintBehaviour
 {
     public Lint speed;
-    protected override void FixedUpdate()
+    public override void Step()
     {
-        base.FixedUpdate();
+        base.Step();
         MoveForward();
     }
 

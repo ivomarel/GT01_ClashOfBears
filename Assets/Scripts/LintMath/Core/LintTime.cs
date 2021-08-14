@@ -10,5 +10,11 @@ public class LintTime : MonoBehaviour
     private void FixedUpdate()
     {
         time++;
+        //TODO Optimize
+        LintBehaviour[] lintBehaviours = FindObjectsOfType<LintBehaviour>();
+        foreach (LintBehaviour behaviour in lintBehaviours)
+        {
+            behaviour.Step();
+        }
     }
 }

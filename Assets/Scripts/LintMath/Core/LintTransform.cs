@@ -32,6 +32,11 @@ public class LintTransform : MonoBehaviour
             //This is ONLY allowed while editing (since otherwise it could break our deterministic simulation)
             position = (LintVector3)transform.position;
             radians = (LintVector3)transform.eulerAngles * Mathf.Deg2Rad;
+            
+            //Small tweak to mark this object as dirty properly
+#if UNITY_EDITOR
+            UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+#endif
         }
     }
 }
