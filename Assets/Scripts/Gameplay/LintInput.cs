@@ -25,7 +25,7 @@ public class LintInput : LintBehaviour
             {
                 //We use CreateAction because we don't want to directly execute action form the Update function (everything should be handled in STEP)
                 CreateAction action = new CreateAction();
-                action.unitName = "Archer";
+                action.unitName = "Soldier";
                 action.position = (LintVector3)hitInfo.point;
                 inputData.actions.Enqueue(action);
             }

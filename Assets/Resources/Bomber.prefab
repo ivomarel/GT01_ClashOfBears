@@ -72,23 +72,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e6a7e78c00dc14fa8b9d1a51e4e599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitType: 2
   rotateSpeed:
     value: 150
   moveSpeed:
     value: 250
   attackRange:
-    value: 60000
+    value: 2000
   attackInterval: 200
   delayToDoDamageOnAttack: 10
   attackPower: 50
   health: 1000
-  team: 0
+  team: 1
   coloredMeshes: []
   spawnOffset:
     x:
       value: 0
     y:
-      value: 0
+      value: 52000
     z:
       value: 0
   BombPrefab: {fileID: 584820299103719690, guid: 333c32d287374cf42a31bd9400a5aed8, type: 3}
@@ -190,7 +191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70098eb7b45b5cb4b950252da2ca16ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.001
+      value: 5.31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 70098eb7b45b5cb4b950252da2ca16ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -421,7 +422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9ce15027ffa37d45bcdd9051437c002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.311
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9ce15027ffa37d45bcdd9051437c002, type: 3}
       propertyPath: m_LocalPosition.z

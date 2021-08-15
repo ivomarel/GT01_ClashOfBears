@@ -8,30 +8,20 @@ public class Bomber : Unit
     public Bomb BombPrefab;
     private Unit _currentTarget;
 
-    [SerializeField]
-    private LintVector3 _spawnOffset;
-
     private bool inCooldown;
 
     protected override void Start()
     {
         base.Start();
-        lintTransform.position.y = 50000;
     }
 
     public override void Step()
     {
         base.Step();
 
-        if (_currentTarget == null)
-        {
-            _currentTarget = GetClosestTarget();
-        }
-        if (_currentTarget != null)
-        {
-            Debug.Log(_currentTarget.name);
-        }
-        lintTransform.position.y = 50000;
+        _currentTarget = GetClosestTarget();
+
+        //  lintTransform.position.y = 50000;
 
         if (_currentTarget != null)
         {
@@ -46,13 +36,19 @@ public class Bomber : Unit
         }
     }
 
+    protected override void OnMovingToTarget()
+    {
+        base.OnMovingToTarget();
+        anim.SetFloat("Speed", 0);
+    }
+
 
     protected override bool InAttackRange()
     {
         if (_currentTarget == null) return false;
         LintVector3 dirToTarget = _currentTarget.lintTransform.position - lintTransform.position;
         dirToTarget.z = 0;
-        return dirToTarget.sqrMagnitude < attackRange * attackRange;
+        return dirToTarget.sqrMagnitude <= attackRange * attackRange;
     }
 
     protected override void Attack()
@@ -66,8 +62,7 @@ public class Bomber : Unit
     private void SpawnBomb()
     {
         Bomb _bomb = Instantiate(BombPrefab);
-        _bomb.lintTransform.position = lintTransform.position;
-        _bomb.lintTransform.position.y -= 2500;
+        _bomb.lintTransform.position = lintTransform.position + spawnOffset;
         _bomb.lintTransform.radians = lintTransform.radians;
     }
 
@@ -76,6 +71,6 @@ public class Bomber : Unit
     /// </summary>
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position + ((Vector3)_spawnOffset), 0.2f);
+        Gizmos.DrawWireSphere(transform.position + ((Vector3)spawnOffset), 0.2f);
     }
 }

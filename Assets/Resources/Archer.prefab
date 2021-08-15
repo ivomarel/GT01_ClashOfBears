@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae77b1a7b35e745a1e67a7ee19824b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitType: 1
   rotateSpeed:
     value: 150
   moveSpeed:
@@ -81,7 +82,7 @@ MonoBehaviour:
   delayToDoDamageOnAttack: 25
   attackPower: 50
   health: 1000
-  team: 1
+  team: 0
   coloredMeshes: []
   spawnOffset:
     x:

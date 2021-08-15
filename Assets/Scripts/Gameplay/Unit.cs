@@ -72,6 +72,10 @@ public class Unit : LintBehaviour
                 OnMovingToTarget();
             }
         }
+        else
+        {
+            anim.SetFloat("Speed", 0);
+        }
     }
 
     protected virtual void OnAttacking()

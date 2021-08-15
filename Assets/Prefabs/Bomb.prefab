@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8395752355319806441}
   - component: {fileID: 8395752355319806447}
-  - component: {fileID: 7297267465498787266}
   - component: {fileID: 584820299103719690}
+  - component: {fileID: -1165371765467823415}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -48,11 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: 0
+      value: -63347
     y:
       value: 0
     z:
-      value: -94899
+      value: -10133
   radians:
     x:
       value: 0
@@ -60,25 +60,6 @@ MonoBehaviour:
       value: 0
     z:
       value: 0
---- !u!114 &7297267465498787266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395752355319806442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  extents:
-    x:
-      value: 2195
-    y:
-      value: 2233
-    z:
-      value: 2462
 --- !u!114 &584820299103719690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +74,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed:
     value: 1000
+  _bombExplosion: {fileID: 1416192484, guid: 6867ba05af0acf54ba2179fc3c9826ce, type: 3}
+  _explosionFX: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+--- !u!114 &-1165371765467823415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395752355319806442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86589766c683a84480bfb959e5bc26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius:
+    value: 17000
 --- !u!1 &8979622120174654395
 GameObject:
   m_ObjectHideFlags: 0
