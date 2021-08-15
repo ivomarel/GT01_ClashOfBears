@@ -6,6 +6,7 @@ using UnityEngine;
 public class Unit : LintBehaviour
 {
     //Tweakables
+    public EUnitType UnitType;
     public Lint rotateSpeed = 150;
     public Lint moveSpeed = 250;
     public Lint attackRange = 10000;
@@ -123,7 +124,7 @@ public class Unit : LintBehaviour
     }
 
     //Big O: O(n)
-    protected virtual Unit GetClosestTarget ()
+    protected virtual Unit GetClosestTarget()
     {
         //TODO this should be cached (Soldiers OnEnable should register to GameManager, OnDisable should unregister)
         Unit[] soldiers = FindObjectsOfType<Unit>();
@@ -131,27 +132,79 @@ public class Unit : LintBehaviour
         Lint closestDistanceSqrd = long.MaxValue;
         Unit closestUnit = null;
 
-        foreach(Unit soldier in soldiers)
+        foreach (Unit soldier in soldiers)
         {
             if (soldier.team != team)
             {
-                Lint distanceSqrd = (soldier.lintTransform.position - this.lintTransform.position).sqrMagnitude;
-                if (distanceSqrd < closestDistanceSqrd)
+                if (GetIsValidTarget(soldier))
                 {
-                    closestDistanceSqrd = distanceSqrd;
-                    closestUnit = soldier;
+                    Lint distanceSqrd = (soldier.lintTransform.position - this.lintTransform.position).sqrMagnitude;
+                    if (distanceSqrd < closestDistanceSqrd)
+                    {
+                        closestDistanceSqrd = distanceSqrd;
+                        closestUnit = soldier;
+                    }
                 }
-            }            
+            }
         }
 
         return closestUnit;
     }
-    
+
+    protected virtual bool GetIsValidTarget(Unit other)
+    {
+        switch (UnitType)
+        {
+            case EUnitType.Melee:
+                switch (other.UnitType)
+                {
+                    case EUnitType.Melee: //MELEE ATTACKING MELEE
+                        return true;
+                    case EUnitType.Ranged: //MELEE ATTACKING RANGED
+                        return true;
+                    case EUnitType.Flying: //MELEE ATTACKING FLYING
+                        return false;
+                }
+                break;
+            case EUnitType.Ranged:
+                switch (other.UnitType)
+                {
+                    case EUnitType.Melee: //RANGED ATTACKING MELEE
+                        return true;
+                    case EUnitType.Ranged: //RANGED ATTACKING RANGED
+                        return true;
+                    case EUnitType.Flying: //RANGED ATTACKING FLYING
+                        return true;
+                }
+                break;
+            case EUnitType.Flying:
+                switch (other.UnitType)
+                {
+                    case EUnitType.Melee: //FLYING ATTACKING MELEE
+                        return true;
+                    case EUnitType.Ranged: //FLYING ATTACKING RANGED
+                        return true;
+                    case EUnitType.Flying: //FLYING ATTACKING FLYING
+                        return false;
+                }
+                break;
+        }
+        return false;
+    }
+
 }
+
 
 public class CollisionPair
 {
     public bool isColliding;
     public LintCollider c1;
     public LintCollider c2;
+}
+
+public enum EUnitType
+{
+    Melee,
+    Ranged,
+    Flying
 }
