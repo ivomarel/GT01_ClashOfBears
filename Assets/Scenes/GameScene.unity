@@ -353,10 +353,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 790413444, guid: 4253e71563ea2cf48bd86dfa1e8333b1, type: 3}
-      propertyPath: attackRange.value
-      value: 10000
-      objectReference: {fileID: 0}
     - target: {fileID: 5970598163304637689, guid: 4253e71563ea2cf48bd86dfa1e8333b1, type: 3}
       propertyPath: m_Name
       value: Bomber
