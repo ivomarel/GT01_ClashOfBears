@@ -123,7 +123,7 @@ public class Unit : LintBehaviour
     }
 
     //Big O: O(n)
-    protected virtual Unit GetClosestTarget ()
+    protected virtual Unit GetClosestTarget()
     {
         //TODO this should be cached (Soldiers OnEnable should register to GameManager, OnDisable should unregister)
         Unit[] soldiers = FindObjectsOfType<Unit>();
@@ -131,7 +131,7 @@ public class Unit : LintBehaviour
         Lint closestDistanceSqrd = long.MaxValue;
         Unit closestUnit = null;
 
-        foreach(Unit soldier in soldiers)
+        foreach (Unit soldier in soldiers)
         {
             if (soldier.team != team)
             {
@@ -141,12 +141,11 @@ public class Unit : LintBehaviour
                     closestDistanceSqrd = distanceSqrd;
                     closestUnit = soldier;
                 }
-            }            
+            }
         }
 
         return closestUnit;
     }
-    
 }
 
 public class CollisionPair

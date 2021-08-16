@@ -14,18 +14,19 @@ public class LintBehaviour : MonoBehaviour
             {
                 _lintTransform = GetComponent<LintTransform>();
             }
+
             return _lintTransform;
         }
     }
-    
+
     private LintTransform _lintTransform;
 
     private LinkedList<InvokeMethod> invokeMethods = new LinkedList<InvokeMethod>();
-    
+
     public void Linvoke(Action method, uint delay)
     {
         InvokeMethod m = new InvokeMethod() {method = method, timeToRun = LintTime.time + delay};
-        
+
         //Looping through the linked list
         var currentNode = invokeMethods.First;
         while (currentNode != null)
@@ -36,8 +37,10 @@ public class LintBehaviour : MonoBehaviour
                 invokeMethods.AddBefore(currentNode, m);
                 return;
             }
+
             currentNode = currentNode.Next;
         }
+
         //If the timeToRun is greater than all, just add last
         invokeMethods.AddLast(m);
     }
@@ -52,7 +55,6 @@ public class LintBehaviour : MonoBehaviour
             invokeMethods.RemoveFirst();
         }
     }
-
 }
 
 public struct InvokeMethod
