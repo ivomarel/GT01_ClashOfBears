@@ -9,11 +9,14 @@ public class Unit : LintBehaviour
     public EUnitType UnitType;
     public Lint rotateSpeed = 150;
     public Lint moveSpeed = 250;
+	//New
+    public Lint boostedMoveSpeed = 300;
     public Lint attackRange = 10000;
     public uint attackInterval = 50;
     public uint delayToDoDamageOnAttack = 25;
     public int attackPower = 50;
     public int health = 1000;
+    public int maxHealth = 1000;
 
     public int team = 0;
 
@@ -24,6 +27,7 @@ public class Unit : LintBehaviour
     //Runtime vars
     private Unit target;
     private uint lastAttackTime;
+	private Lint currentSpeed;
 
     protected virtual void Awake()
     {
@@ -38,6 +42,11 @@ public class Unit : LintBehaviour
         {
             r.material.color = teamColor;
         }
+
+		//Added for healing purposes
+		health = maxHealth;
+		//Added for speed boosting
+		SetMoveSpeed(false);
     }
 
     protected virtual bool InAttackRange()
@@ -111,6 +120,14 @@ public class Unit : LintBehaviour
         }
     }
 
+	virtual
+	public void OnHeal(int amount){
+		health += amount;
+		if(health > maxHealth){
+			health = maxHealth;
+		}
+	}
+
     protected virtual void Die()
     {
         Destroy(this.gameObject);
@@ -123,12 +140,16 @@ public class Unit : LintBehaviour
         Lint angle = LintMath.Atan2(dirToTarget.z, dirToTarget.x);
         lintTransform.radians.y = angle;
 
-        lintTransform.position += dirToTarget.normalized * moveSpeed;
+        lintTransform.position += dirToTarget.normalized * currentSpeed;
         anim.SetFloat("Speed", 1);
     }
 
+	public void SetMoveSpeed(bool isBoosted){
+		currentSpeed = isBoosted? moveSpeed : boostedMoveSpeed;
+	}
+
     //Big O: O(n)
-    protected virtual Unit GetClosestTarget()
+    protected virtual Unit GetClosestTarget(bool isAlly = false)
     {
         //TODO this should be cached (Soldiers OnEnable should register to GameManager, OnDisable should unregister)
         Unit[] soldiers = FindObjectsOfType<Unit>();
@@ -138,7 +159,7 @@ public class Unit : LintBehaviour
 
         foreach (Unit soldier in soldiers)
         {
-            if (soldier.team != team)
+            if (isAlly? (soldier.team == team && soldier != this) : soldier.team != team)
             {
                 if (GetIsValidTarget(soldier))
                 {
