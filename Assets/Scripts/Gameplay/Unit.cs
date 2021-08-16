@@ -145,7 +145,7 @@ public class Unit : LintBehaviour
     }
 
 	public void SetMoveSpeed(bool isBoosted){
-		currentSpeed = isBoosted? moveSpeed : boostedMoveSpeed;
+		currentSpeed = isBoosted? boostedMoveSpeed : moveSpeed;
 	}
 
     //Big O: O(n)
