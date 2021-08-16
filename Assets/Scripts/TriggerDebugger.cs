@@ -10,9 +10,11 @@ public class TriggerDebugger : LintBehaviour
     public UnityEvent onTriggerStay;
     public UnityEvent onTriggerExit;
 
+    public bool enableDebug;
     
     void OnLintTriggerEnter(LintCollider other)
     {
+        Log("OnLintTriggerEnter", other);
         onTriggerEnter?.Invoke();
     }
     
@@ -24,8 +26,17 @@ public class TriggerDebugger : LintBehaviour
     
     void OnLintTriggerExit(LintCollider other)
     {
+        Log("OnLintTriggerExit", other);
+
         onTriggerExit?.Invoke();
     }
 
+    private void Log(string type, LintCollider other)
+    {
+        if (enableDebug)
+        {
+            Debug.Log($"{this.gameObject.name}.{type}({other.name})");
+        }
+    }
     
 }
