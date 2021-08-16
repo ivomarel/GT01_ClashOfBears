@@ -47,16 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -32699
+      value: 0
     y:
       value: 0
     z:
-      value: -3899
+      value: -8780
   radians:
     x:
       value: 0
     y:
-      value: 31415
+      value: 0
     z:
       value: 0
 --- !u!114 &3620309753515130172
@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbae77b1a7b35e745a1e67a7ee19824b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitType: 1
   rotateSpeed:
     value: 150
   moveSpeed:
@@ -81,7 +82,7 @@ MonoBehaviour:
   delayToDoDamageOnAttack: 25
   attackPower: 50
   health: 1000
-  team: 1
+  team: 0
   coloredMeshes: []
   spawnOffset:
     x:
@@ -90,7 +91,7 @@ MonoBehaviour:
       value: 0
     z:
       value: 0
-  arrowPrefab: {fileID: 0}
+  arrowPrefab: {fileID: 6871222198024934930, guid: 21a74c7949cc8724da083efefd2699b3, type: 3}
 --- !u!95 &5970598163421834758
 Animator:
   serializedVersion: 3
@@ -101,7 +102,7 @@ Animator:
   m_GameObject: {fileID: 5971007390536352303}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b7e10e6faa72e074888c402c5a76cf81, type: 3}
-  m_Controller: {fileID: 22100000, guid: d60f24b34d544e74dbe020f9d78cb3e9, type: 2}
+  m_Controller: {fileID: 22100000, guid: 2fb84920469493c449416e21e88e78c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

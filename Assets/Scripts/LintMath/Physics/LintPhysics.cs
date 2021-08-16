@@ -5,7 +5,7 @@ using UnityEngine;
 public class LintPhysics : LintBehaviour
 {
     public static List<LintCollider> colliders;
-    
+
     private Dictionary<long, CollisionPair> triggerMap = new Dictionary<long, CollisionPair>();
 
 
@@ -22,7 +22,7 @@ public class LintPhysics : LintBehaviour
         {
             pair.isColliding = false;
         }
-        
+
         for (int i = 0; i < colliders.Count - 1; i++)
         {
             /* i.e. with 4 colliders
@@ -47,7 +47,7 @@ public class LintPhysics : LintBehaviour
                         c2 = c1;
                         c1 = temp;
                     }
-                    
+
                     //Get a unique ID by using the two integers and storing them in a long
                     //(by bitshifting the first integer 32 spots it will take the first half of the long, and the second integer will take the second half)
                     long id = ((long)c1.GetInstanceID()) << 32 + c2.GetInstanceID();
@@ -56,18 +56,20 @@ public class LintPhysics : LintBehaviour
                     {
                         var x = triggerMap[id];
                         x.isColliding = true;
-                    } else { 
+                    }
+                    else
+                    {
                         c1.gameObject.SendMessage("OnLintTriggerEnter", c2, SendMessageOptions.DontRequireReceiver);
                         c2.gameObject.SendMessage("OnLintTriggerEnter", c1, SendMessageOptions.DontRequireReceiver);
-                        var p = new CollisionPair() {c1 = c1, c2 = c2, isColliding = true};
+                        var p = new CollisionPair() { c1 = c1, c2 = c2, isColliding = true };
                         triggerMap.Add(id, p);
-                    }                    
+                    }
 
                     c1.gameObject.SendMessage("OnLintTriggerStay", c2, SendMessageOptions.DontRequireReceiver);
                     c2.gameObject.SendMessage("OnLintTriggerStay", c1, SendMessageOptions.DontRequireReceiver);
                 }
             }
-            
+
             var noLongerColliding = new List<long>();
             foreach (var kv in triggerMap)
             {
@@ -80,7 +82,7 @@ public class LintPhysics : LintBehaviour
                 }
             }
             //Using the keys from before we can now safely remove these from the Dictionary
-            foreach(long key in noLongerColliding)
+            foreach (long key in noLongerColliding)
             {
                 triggerMap.Remove(key);
             }
@@ -141,7 +143,7 @@ public class LintPhysics : LintBehaviour
 
         sides.AddRange(c1Sides);
         sides.AddRange(c2Sides);
-        
+
         //For 3D Collision, we also need to check the CROSS PRODUCT
         sides.Add(LintVector3.Cross(c1Sides[0], c2Sides[0]));
         sides.Add(LintVector3.Cross(c1Sides[0], c2Sides[1]));
@@ -179,7 +181,7 @@ public class LintPhysics : LintBehaviour
         //we compare it to radius squared
         return (GetDistanceFromOBBToSphere(sphere, box) <= sphere.radius * sphere.radius);
     }
-    
+
     // Returns a Lint which is the distance between the closest point on OBB box from the sphere center
     private static Lint GetDistanceFromOBBToSphere(LintSphereCollider sphere, LintBoxCollider box)
     {
