@@ -13,29 +13,23 @@ public class HealBear : Unit{
 	public Lint healRange;
 
 	//Runtime
-	Unit targetAlly;
+	LintTransform speedArea;
 
 	override
 	protected void Awake(){
 		base.Awake();
-	}
-
-	override
-	protected void Attack(){
-		anim.SetTrigger("Attack");
-		anim.SetFloat("Speed", 0);
-		HealUnits();
+		speedArea = GetComponentInChildren<SpeedArea>().lintTransform;
 	}
 
 	override
 	public void Step(){
-		base.Step();
-		targetAlly = GetClosestTarget(true);
-		if (targetAlly != null)
+		target = GetClosestTarget(true);
+
+		if (target != null)
         {
             if (InAttackRange())
             {
-                HealUnits();
+                OnAttacking();
             }
             else
             {
@@ -46,32 +40,54 @@ public class HealBear : Unit{
         {
             anim.SetFloat("Speed", 0);
         }
+		speedArea.position = lintTransform.position;
 
 	}
+
+	// private void OnGUI()
+	// {
+	// 	GUILayout.Label($"My target: {target.transform.name}");
+	// }
+
+	override
+	protected void Attack(){
+        anim.SetFloat("Speed", 0);
+		anim.SetTrigger("Attack");
+        // Linvoke(HealUnits, delayToDoDamageOnAttack);
+		HealUnits();
+	}
+
 	public void HealUnits(){
 
 		// sphereCollider.enabled = true;
 		//Used this in case the cached logic isn't ready yet
 		Unit[] units = FindObjectsOfType<Unit>();
+		// Debug.Log($"Heal, units: {units.Length}", this);
 		foreach (Unit possibleAlly in units)
         {
-			if(InRange(possibleAlly.lintTransform, healRange) && possibleAlly.team == team)
+			if(InRange(possibleAlly.lintTransform, healRange) &&  possibleAlly.team == team && possibleAlly != this)
 			{
+				Debug.Log($"Healing {possibleAlly.transform.name}", possibleAlly.transform);
 				possibleAlly.OnHeal(healPower);
 			}
 		}
 
 	}
 
+
+
 	protected virtual bool InRange(LintTransform target, Lint range)
     {
         LintVector3 dirToTarget = target.position - lintTransform.position;
-        return dirToTarget.sqrMagnitude < range * range;
+
+        bool isInRange = dirToTarget.sqrMagnitude < range * range;
+
+		return isInRange;
     }
 
 	private void OnDrawGizmos(){
 		Gizmos.color = Color.green;
-		Gizmos.DrawSphere(transform.position, healRange * LintMath.Lint2Float);
+		Gizmos.DrawWireSphere(lintTransform.position, healRange * LintMath.Lint2Float);
 	}
 
 }
