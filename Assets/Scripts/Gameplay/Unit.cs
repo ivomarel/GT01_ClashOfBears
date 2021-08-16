@@ -97,7 +97,7 @@ public class Unit : LintBehaviour
         }
     }
 
-    protected virtual void OnHit(int amount)
+    public virtual void OnHit(int amount)
     {
         health -= amount;
         if (health <= 0)
