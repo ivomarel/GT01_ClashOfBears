@@ -9,7 +9,7 @@ public class Unit : LintBehaviour
     public EUnitType UnitType;
     public Lint rotateSpeed = 150;
     public Lint moveSpeed = 250;
-	//New
+    //New
     public Lint boostedMoveSpeed = 300;
     public Lint attackRange = 10000;
     public uint attackInterval = 50;
@@ -25,9 +25,9 @@ public class Unit : LintBehaviour
     protected Animator anim;
 
     //Runtime vars
-    public Unit target;
+    protected Unit target;
     private uint lastAttackTime;
-	private Lint currentSpeed;
+    private Lint currentSpeed;
 
     protected virtual void Awake()
     {
@@ -43,10 +43,10 @@ public class Unit : LintBehaviour
             r.material.color = teamColor;
         }
 
-		//Added for healing purposes
-		health = maxHealth;
-		//Added for speed boosting
-		SetMoveSpeed(false);
+        //Added for healing purposes
+        health = maxHealth;
+        //Added for speed boosting
+        SetMoveSpeed(false);
     }
 
     protected virtual bool InAttackRange()
@@ -83,7 +83,7 @@ public class Unit : LintBehaviour
         }
         else
         {
-            anim.SetFloat("Speed", 0);
+            //anim.SetFloat("Speed", 0);
         }
     }
 
@@ -120,13 +120,15 @@ public class Unit : LintBehaviour
         }
     }
 
-	virtual
-	public void OnHeal(int amount){
-		health += amount;
-		if(health > maxHealth){
-			health = maxHealth;
-		}
-	}
+    virtual
+    public void OnHeal(int amount)
+    {
+        health += amount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
 
     protected virtual void Die()
     {
@@ -144,12 +146,13 @@ public class Unit : LintBehaviour
         anim.SetFloat("Speed", 1);
     }
 
-	public void SetMoveSpeed(bool isBoosted){
-		currentSpeed = isBoosted? boostedMoveSpeed : moveSpeed;
-	}
+    public void SetMoveSpeed(bool isBoosted)
+    {
+        currentSpeed = isBoosted ? boostedMoveSpeed : moveSpeed;
+    }
 
     //Big O: O(n)
-    protected virtual Unit GetClosestTarget()
+    protected virtual Unit GetClosestTarget(bool isAlly = false)
     {
         //TODO this should be cached (Soldiers OnEnable should register to GameManager, OnDisable should unregister)
         Unit[] soldiers = FindObjectsOfType<Unit>();
@@ -159,7 +162,7 @@ public class Unit : LintBehaviour
 
         foreach (Unit soldier in soldiers)
         {
-            if (isAlly? (soldier.team == team && soldier != this) : soldier.team != team)
+            if (isAlly ? (soldier.team == team && soldier != this) : soldier.team != team)
             {
                 if (GetIsValidTarget(soldier))
                 {
@@ -174,6 +177,47 @@ public class Unit : LintBehaviour
         }
 
         return closestUnit;
+    }
+
+    protected virtual bool GetIsValidTarget(Unit other)
+    {
+        switch (UnitType)
+        {
+            case EUnitType.Melee:
+                switch (other.UnitType)
+                {
+                    case EUnitType.Melee: //MELEE ATTACKING MELEE
+                        return true;
+                    case EUnitType.Ranged: //MELEE ATTACKING RANGED
+                        return true;
+                    case EUnitType.Flying: //MELEE ATTACKING FLYING
+                        return false;
+                }
+                break;
+            case EUnitType.Ranged:
+                switch (other.UnitType)
+                {
+                    case EUnitType.Melee: //RANGED ATTACKING MELEE
+                        return true;
+                    case EUnitType.Ranged: //RANGED ATTACKING RANGED
+                        return true;
+                    case EUnitType.Flying: //RANGED ATTACKING FLYING
+                        return true;
+                }
+                break;
+            case EUnitType.Flying:
+                switch (other.UnitType)
+                {
+                    case EUnitType.Melee: //FLYING ATTACKING MELEE
+                        return true;
+                    case EUnitType.Ranged: //FLYING ATTACKING RANGED
+                        return true;
+                    case EUnitType.Flying: //FLYING ATTACKING FLYING
+                        return false;
+                }
+                break;
+        }
+        return false;
     }
 
 }
