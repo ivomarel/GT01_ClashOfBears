@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8617459047442873989}
   - component: {fileID: 5570901927992598629}
   - component: {fileID: 8161543332017088142}
+  - component: {fileID: 9075389962890837299}
   m_Layer: 0
   m_Name: HealtParticles
   m_TagString: Untagged
@@ -4889,12 +4890,12 @@ MonoBehaviour:
     x:
       value: 0
     y:
-      value: 0
+      value: 6859
     z:
       value: 0
   radians:
     x:
-      value: 0
+      value: 47123
     y:
       value: 0
     z:
@@ -4911,3 +4912,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca0a53758c8bee74093465fd0b23688d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9075389962890837299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935807362369802332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7bf4b98aa052945800095457299fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeToDestroy: 200

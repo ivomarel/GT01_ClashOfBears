@@ -43,10 +43,14 @@ public class SpeedArea:LintBehaviour{
 
 	public void OnLintTriggerExit(LintCollider other){
 		// Debug.Log($"Trigger exit {other.transform.name}", this);
+		if(other == null){
+			return;
+		}
+
 		Unit unit = other.GetComponent<Unit>();
 		if(unit.team == myTeam && unit != myBear){
 			unit.SetMoveSpeed(false);
-			if(buffedUnits.Contains(unit)){
+			if(buffedUnits.Contains(unit) && unit != null){
 				buffedUnits.Remove(unit);
 			}
 		}
@@ -54,7 +58,10 @@ public class SpeedArea:LintBehaviour{
 
 	private void OnDestroy(){
 		foreach(Unit unit in buffedUnits){
-			unit.SetMoveSpeed(false);
+			//Nullcheck in case it was destroyed
+			if(unit){
+				unit.SetMoveSpeed(false);
+			}
 		}
 	}
 

@@ -70,7 +70,7 @@ public class HealBear : Unit{
         {
 			if(InRange(possibleAlly.lintTransform, healRange) &&  possibleAlly.team == team && possibleAlly != this)
 			{
-				Debug.Log($"Healing {possibleAlly.transform.name}", possibleAlly.transform);
+				// Debug.Log($"Healing {possibleAlly.transform.name}", possibleAlly.transform);
 				possibleAlly.OnHeal(healPower);
 				//TODO: replace for RPC proton call
 				LintBehaviour lintParticles = Instantiate(_particlePrefab);
