@@ -15,6 +15,9 @@ public class HealBear : Unit{
 	//Runtime
 	LintTransform speedArea;
 
+	[SerializeField]
+	LintBehaviour _particlePrefab;
+
 	override
 	protected void Awake(){
 		base.Awake();
@@ -69,6 +72,10 @@ public class HealBear : Unit{
 			{
 				Debug.Log($"Healing {possibleAlly.transform.name}", possibleAlly.transform);
 				possibleAlly.OnHeal(healPower);
+				//TODO: replace for RPC proton call
+				LintBehaviour lintParticles = Instantiate(_particlePrefab);
+				lintParticles.lintTransform.position = possibleAlly.lintTransform.position;
+				
 			}
 		}
 
