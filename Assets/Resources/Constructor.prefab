@@ -1521,13 +1521,13 @@ MonoBehaviour:
   rotateSpeed:
     value: 150
   moveSpeed:
-    value: 100
+    value: 250
   attackRange:
     value: 10000
   attackInterval: 50
   delayToDoDamageOnAttack: 25
   attackPower: 50
-  health: 1000
+  health: 2000
   team: 0
   coloredMeshes:
   - {fileID: 4341645320843362235}
@@ -1537,6 +1537,7 @@ MonoBehaviour:
     value: 100000
   _towerPrefab: {fileID: 4179279826280595945, guid: cef561f05c546754ea0856fdc3ec9273, type: 3}
   _maxHealth: 0
+  _randomSeed: 0
 --- !u!1 &8403539989395384552
 GameObject:
   m_ObjectHideFlags: 0
