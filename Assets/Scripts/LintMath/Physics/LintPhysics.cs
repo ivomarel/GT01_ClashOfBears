@@ -23,10 +23,10 @@ public class LintPhysics : LintBehaviour
     {
         base.Step();
 
-        //foreach (CollisionPair pair in triggerMap.Values)
-        //{
-        //    pair.isColliding = false;
-        //}
+        foreach (CollisionPair pair in triggerMap.Values)
+        {
+            pair.isColliding = false;
+        }
 
         for (int i = 0; i < colliders.Count - 1; i++)
         {
@@ -52,11 +52,12 @@ public class LintPhysics : LintBehaviour
                         c2 = c1;
                         c1 = temp;
                     }
-
+                    
+                    
                     //Get a unique ID by using the two integers and storing them in a long
                     //(by bitshifting the first integer 32 spots it will take the first half of the long, and the second integer will take the second half)
-                    id = ((long)c1.GetInstanceID()) << 32 + c2.GetInstanceID();
-
+                    long id = (((long)c1.GetInstanceID()) << 32) + c2.GetInstanceID();
+                   
                     if (triggerMap.ContainsKey(id))
                     {
                         triggerMap[id].isColliding = true;
@@ -72,81 +73,22 @@ public class LintPhysics : LintBehaviour
                     c1.gameObject.SendMessage("OnLintTriggerStay", c2, SendMessageOptions.DontRequireReceiver);
                     c2.gameObject.SendMessage("OnLintTriggerStay", c1, SendMessageOptions.DontRequireReceiver);
                 }
-                else
-                {
-                    if (c1.GetInstanceID() > c2.GetInstanceID())
-                    {
-                        LintCollider temp = c2;
-                        c2 = c1;
-                        c1 = temp;
-                    }
-
-                    id = ((long)c1.GetInstanceID()) << 32 + c2.GetInstanceID();
-
-                    if (triggerMap.ContainsKey(id))
-                    {
-                        triggerMap[id].isColliding = false;
-                        triggerMap.Remove(id);
-                        c1.gameObject.SendMessage("OnLintTriggerExit", c2, SendMessageOptions.DontRequireReceiver);
-                        c2.gameObject.SendMessage("OnLintTriggerExit", c1, SendMessageOptions.DontRequireReceiver);
-                    }
-                }
             }
-
-            CheckForDisabledColliders();
-
-            //var noLongerColliding = new List<long>();
-            //foreach (var kv in triggerMap)
-            //{
-            //    if (!kv.Value.isColliding)
-            //    {
-            //        if (kv.Value.c1.ShowDebug && kv.Value.c2.ShowDebug)
-            //            Debug.Log($"Exit: {kv.Value.c1}, {kv.Value.c2}");
-
-            //        if (kv.Value.c1)
-            //            kv.Value.c1.gameObject.SendMessage("OnLintTriggerExit", kv.Value.c2,
-            //                SendMessageOptions.DontRequireReceiver);
-            //        if (kv.Value.c2)
-            //            kv.Value.c2.gameObject.SendMessage("OnLintTriggerExit", kv.Value.c1,
-            //                SendMessageOptions.DontRequireReceiver);
-            //        //We can't directly remove this from the Dictionary since we can't modify a collection while iterating through it.
-            //        noLongerColliding.Add(kv.Key);
-            //    }
-            //}
-
-            //Using the keys from before we can now safely remove these from the Dictionary
-            //foreach (long key in noLongerColliding)
-            //{
-            //    triggerMap.Remove(key);
-            //}
         }
-    }
-
-    private void CheckForDisabledColliders()
-    {
+        
         var noLongerColliding = new List<long>();
-
-        foreach (var tm in triggerMap)
+        foreach (var kv in triggerMap)
         {
-            if (tm.Value.c1.gameObject.activeSelf == false && tm.Value.c2.gameObject.activeSelf == false)
+            if (!kv.Value.isColliding)
             {
-                tm.Value.c1.gameObject.SendMessage("OnLintTriggerExit", tm.Value.c2, SendMessageOptions.DontRequireReceiver);
-                tm.Value.c2.gameObject.SendMessage("OnLintTriggerExit", tm.Value.c1, SendMessageOptions.DontRequireReceiver);
-                noLongerColliding.Add(tm.Key);
-            }
-            else if (tm.Value.c1.gameObject.activeSelf == false)
-            {
-                tm.Value.c2.gameObject.SendMessage("OnLintTriggerExit", tm.Value.c1, SendMessageOptions.DontRequireReceiver);
-                noLongerColliding.Add(tm.Key);
-            }
-            else if (tm.Value.c2.gameObject.activeSelf == false)
-            {
-                tm.Value.c1.gameObject.SendMessage("OnLintTriggerExit", tm.Value.c2, SendMessageOptions.DontRequireReceiver);
-                noLongerColliding.Add(tm.Key);
+                if (kv.Value.c1) kv.Value.c1.gameObject.SendMessage("OnLintTriggerExit", kv.Value.c2, SendMessageOptions.DontRequireReceiver);
+                if (kv.Value.c2) kv.Value.c2.gameObject.SendMessage("OnLintTriggerExit", kv.Value.c1, SendMessageOptions.DontRequireReceiver);
+                //We can't directly remove this from the Dictionary since we can't modify a collection while iterating through it.
+                noLongerColliding.Add(kv.Key);
             }
         }
-
-        foreach (long key in noLongerColliding)
+        //Using the keys from before we can now safely remove these from the Dictionary
+        foreach(long key in noLongerColliding)
         {
             triggerMap.Remove(key);
         }

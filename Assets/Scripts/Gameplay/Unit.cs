@@ -25,7 +25,7 @@ public class Unit : LintBehaviour
     protected Animator anim;
 
     //Runtime vars
-    private Unit target;
+    protected Unit target;
     private uint lastAttackTime;
 	private Lint currentSpeed;
 
