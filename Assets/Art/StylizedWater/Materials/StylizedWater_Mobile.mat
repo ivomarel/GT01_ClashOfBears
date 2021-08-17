@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater_Mobile
   m_Shader: {fileID: 4800000, guid: 4bcc0b68579a5c740ad31644411ffb54, type: 3}
-  m_ShaderKeywords: _UNLIT_ON _USEINTERSECTIONFOAM_ON _WORLDSPACETILIBG_ON
+  m_ShaderKeywords: _LIGHTING_ON _USEINTERSECTIONFOAM_ON _WORLDSPACETILIBG_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -99,7 +99,7 @@ Material:
     - _Tiling: 0.955
     - _Transparency: 1
     - _USE_VC_INTERSECTION: 0
-    - _Unlit: 1
+    - _Unlit: 0
     - _UseIntersectionFoam: 1
     - _UseIntersectionHighlight: 0
     - _WaveFoam: 0.333
