@@ -90,7 +90,7 @@ MonoBehaviour:
       value: 0
     z:
       value: 0
-  arrowPrefab: {fileID: 0}
+  arrowPrefab: {fileID: 6871222198024934930, guid: 21a74c7949cc8724da083efefd2699b3, type: 3}
 --- !u!95 &5970598163421834758
 Animator:
   serializedVersion: 3
