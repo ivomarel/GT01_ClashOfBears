@@ -40,15 +40,18 @@ public class Tanker : Unit
 
     public override void Step()
     {
+        //dead check
         if (_wasDead)
         {
             ApplyDie();
         }
         else
         {
+            //if not , do things as normal
             base.Step();
             if (target != null)
             {
+                //add a OnKnockBack function as a ability 
                 if (InAttackRange())
                 {
                     OnKnockBack();
@@ -59,6 +62,7 @@ public class Tanker : Unit
 
     private void OnKnockBack()
     {
+        //do KnockBack every _knockBackBtwTime 
         if (LintTime.time > _lastKnockTime + _knockBackBtwTime)
         {
             _knockParticle.Play();
@@ -72,6 +76,7 @@ public class Tanker : Unit
 
     public override void OnHit(int amount)
     {
+        // let unit only call once die function when it was dead
         if (health > 1)
         {
             health -= amount;
@@ -86,8 +91,9 @@ public class Tanker : Unit
 
     protected override void Die()
     {
-
+        //apply dead animation 
         anim.SetTrigger("Dead");
+        //set _lastDeadTime as LintTime.time
         _lastDeadTime = LintTime.time;
         _wasDead = true;
     }
@@ -95,25 +101,31 @@ public class Tanker : Unit
 
     private void ApplyDie()
     {
+        //if have revival times
         if (_revivalNumOfTimes > 0)
         {
+            //if over the revival waiting time 
             if (LintTime.time > _lastDeadTime + _revivalTimers)
             {
+                //do revival
                 Revival();
+                //_revivalNumOfTimes -1;
                 _revivalNumOfTimes--;
                 _wasDead = false;
             }
         }
+        //if the unit don't has revival times
         else
         {
+            //destroy this 
             Destroy(gameObject);
         }
     }
     private void Revival()
     {
         anim.SetTrigger("Revival");
+        //set health as the original health
         health = _healthMax;
-        Debug.Log(123);
     }
 
 }

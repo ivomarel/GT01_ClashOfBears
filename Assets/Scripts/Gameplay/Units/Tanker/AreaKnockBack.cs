@@ -20,21 +20,26 @@ public class AreaKnockBack : LintBehaviour
     }
     private void Start()
     {
+        //destry this after _knockTime
         Destroy(gameObject, _knockTime);
+        //get col of this object
         var col = GetComponent<LintSphereCollider>();
+        //set knock range to this col's radius 
         col.radius = _range;
-        Debug.Log(team);
     }
 
     private void OnLintTriggerStay(LintCollider other)
-    {
+    {   //check if other has Unit 
         if (other.GetComponent<Unit>())
         {
+            //assign it to _unit 
             _unit = other.GetComponent<Unit>();
+            //check is it same team with the self unit
             if (other.GetComponent<Unit>().team != team)
             {
-                Debug.Log(_unit.name);
+                // get the _knockDir
                 _knockDir = _unit.lintTransform.position - this.lintTransform.position;
+                //add a speed to the _unit
                 _unit.lintTransform.position += _knockDir * _knockSpeed;
             }
         }
@@ -43,14 +48,4 @@ public class AreaKnockBack : LintBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, _range * 0.0001f);
     }
-    // private void KnockBack()
-    // {
-    //     if (_unit != null && team != _unit.team)
-    //     {
-    //         Debug.Log(_unit.name);
-    //         _knockDir = _unit.lintTransform.position - this.lintTransform.position;
-    //         _unit.lintTransform.position += _knockDir * _knockSpeed;
-    //     }
-    // }
-
 }
