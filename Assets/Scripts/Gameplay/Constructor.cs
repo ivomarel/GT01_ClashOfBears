@@ -8,28 +8,28 @@ public class Constructor : Unit
     private Tower _towerToFix;
     public uint delayToBuild = 100;
     public Lint BuildingRange = 100000;
-    private MeshCollider _battleField;
     [SerializeField] private Tower _towerPrefab;
     private uint _buildProgressValue;
     private uint _buildTimer;
     private uint _buildTime = 500;
-    private int _maxHealth;
+    public int _maxHealth;
+    [SerializeField] private int _randomSeed;
+    private int _posLimit = 20;
 
 
     protected override void Start()
     {
         base.Start();
-        _maxHealth = health;
-        _battleField = FindObjectOfType<MeshCollider>();
+        Random.seed = _randomSeed; //establish a random seed to make the random always the same relative to the seed
+        _maxHealth = _towerPrefab.health;
         _towerPosition = GetNewTowerPos();
     }
 
     public override void Step()
     {
-        //base.Step();
-
         //is there any towers around you that need help
         _towerToFix = GetTowerToFix();
+        //If there is a tower to fix then teddy will go fix it
         if (_towerToFix != null)
         {
             _towerPosition = _towerToFix.lintTransform.position;
@@ -39,8 +39,8 @@ public class Constructor : Unit
             {
                 FixTower();
             }
-
         }
+        //if not, teddy will get a random position where hes going to build a new tower
         else if (ItCanBuild(_towerPosition))
         {
             OnMovingToTarget();
@@ -61,18 +61,18 @@ public class Constructor : Unit
     private bool ItCanBuild(LintVector3 TowerPos)
     {
         Tower[] towers = FindObjectsOfType<Tower>();
-
         foreach (Tower tower in towers)
         {
-            Lint distanceSqrd = (tower.lintTransform.position - TowerPos).sqrMagnitude;
-            if (distanceSqrd < BuildingRange)
+            if (tower.team == team)
             {
-                _towerPosition = GetNewTowerPos();
-                return false;
+                Lint distanceSqrd = (tower.lintTransform.position - TowerPos).sqrMagnitude;
+                if (distanceSqrd < BuildingRange)
+                {
+                    _towerPosition = GetNewTowerPos();
+                    return false;
+                }
             }
-
         }
-
         return true;
     }
 
@@ -89,20 +89,21 @@ public class Constructor : Unit
 
     private LintVector3 GetNewTowerPos()
     {
-        var X = Random.Range(-_battleField.transform.localScale.x, _battleField.transform.localScale.x) * LintMath.Float2Lint;
-        var Z = Random.Range(-_battleField.transform.localScale.z, _battleField.transform.localScale.z) * LintMath.Float2Lint;
-        LintVector3 pos = new LintVector3((Lint)X, 0, (Lint)Z);
+        //Get a random position in the map within the limits of the play area
+        //so teddy could go and start building one tower
+        Lint X = (Lint)(Random.Range(-_posLimit, _posLimit) * LintMath.Float2Lint);
+        Lint Z = (Lint)(Random.Range(-_posLimit, _posLimit) * LintMath.Float2Lint);
+        LintVector3 pos = new LintVector3(X, 0, Z);
 
         return pos;
     }
+    //This method look for towers of our team that need help so
+    //teddy could go and fix it
     private Tower GetTowerToFix()
     {
-        //TODO this should be cached (Soldiers OnEnable should register to GameManager, OnDisable should unregister)
         Tower[] towers = FindObjectsOfType<Tower>();
-
         Lint closestDistanceSqrd = long.MaxValue;
         Tower closestTower = null;
-
         foreach (Tower tower in towers)
         {
             if (tower.team == team)
@@ -118,9 +119,10 @@ public class Constructor : Unit
                 }
             }
         }
-
         return closestTower;
     }
+
+    //Once teddy is within reach of the location the building will begin
     private void BuildTower()
     {
         anim.SetTrigger("Attack");
@@ -160,6 +162,10 @@ public class Constructor : Unit
             _buildTimer = LintTime.time;
         }
     }
+    //Instantiate a Tower
+    //Assigning a team 
+    //And reset the tower position
+
     private void SpawnTower()
     {
         Tower towerClone = Instantiate(_towerPrefab);

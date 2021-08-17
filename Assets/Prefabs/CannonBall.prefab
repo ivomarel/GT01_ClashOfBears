@@ -75,7 +75,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   speed:
-    value: 1000
+    value: 50
+  DamagePower:
+    value: 0
+  Forward:
+    x:
+      value: 0
+    y:
+      value: 0
+    z:
+      value: 0
 --- !u!114 &6255274096416988840
 MonoBehaviour:
   m_ObjectHideFlags: 0

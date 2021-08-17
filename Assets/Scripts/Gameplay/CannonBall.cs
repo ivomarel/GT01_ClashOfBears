@@ -11,17 +11,16 @@ public class CannonBall : LintBehaviour
     public int team;
     public Lint speed;
     public Lint DamagePower;
+    public LintVector3 Forward;
     public override void Step()
     {
         base.Step();
-        MoveForward();
+        ShootTarget();
     }
 
-    private void MoveForward()
+    private void ShootTarget()
     {
-        LintMatrix mx = this.lintTransform.rotationMatrix;
-        LintVector3 forward = new LintVector3(mx[0, 2], mx[1, 2], mx[2, 2]);
-        this.lintTransform.position += forward * speed;
+        this.lintTransform.position += Forward * speed;
     }
 
     private void OnLintTriggerEnter(LintCollider other)

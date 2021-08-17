@@ -47,16 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -32699
+      value: 0
     y:
       value: 0
     z:
-      value: -3899
+      value: -8780
   radians:
     x:
       value: 0
     y:
-      value: 31415
+      value: 0
     z:
       value: 0
 --- !u!114 &3620309753515130172
@@ -82,7 +82,8 @@ MonoBehaviour:
   attackPower: 50
   health: 1000
   team: 1
-  coloredMeshes: []
+  coloredMeshes:
+  - {fileID: 5947545159466852681}
   spawnOffset:
     x:
       value: 0
@@ -175,5 +176,10 @@ GameObject:
 --- !u!4 &5968530076731251735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4408071192752658, guid: 8ddb8672869b2ac4182b06d5e50cfef6, type: 3}
+  m_PrefabInstance: {fileID: 5970598163421834757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5947545159466852681 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23150950701469516, guid: 8ddb8672869b2ac4182b06d5e50cfef6, type: 3}
   m_PrefabInstance: {fileID: 5970598163421834757}
   m_PrefabAsset: {fileID: 0}

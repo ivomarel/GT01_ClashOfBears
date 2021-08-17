@@ -100,7 +100,7 @@ MonoBehaviour:
   attackInterval: 100
   delayToDoDamageOnAttack: 25
   attackPower: 50
-  health: 1000
+  health: 300
   team: 0
   coloredMeshes:
   - {fileID: 8661408419076839908}
