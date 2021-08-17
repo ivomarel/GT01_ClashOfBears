@@ -25,7 +25,7 @@ public class Unit : LintBehaviour
     protected Animator anim;
 
     //Runtime vars
-    protected Unit target;
+    public Unit target;
     private uint lastAttackTime;
 	private Lint currentSpeed;
 
@@ -149,7 +149,7 @@ public class Unit : LintBehaviour
 	}
 
     //Big O: O(n)
-    protected virtual Unit GetClosestTarget(bool isAlly = false)
+    protected virtual Unit GetClosestTarget()
     {
         //TODO this should be cached (Soldiers OnEnable should register to GameManager, OnDisable should unregister)
         Unit[] soldiers = FindObjectsOfType<Unit>();
@@ -174,47 +174,6 @@ public class Unit : LintBehaviour
         }
 
         return closestUnit;
-    }
-
-    protected virtual bool GetIsValidTarget(Unit other)
-    {
-        switch (UnitType)
-        {
-            case EUnitType.Melee:
-                switch (other.UnitType)
-                {
-                    case EUnitType.Melee: //MELEE ATTACKING MELEE
-                        return true;
-                    case EUnitType.Ranged: //MELEE ATTACKING RANGED
-                        return true;
-                    case EUnitType.Flying: //MELEE ATTACKING FLYING
-                        return false;
-                }
-                break;
-            case EUnitType.Ranged:
-                switch (other.UnitType)
-                {
-                    case EUnitType.Melee: //RANGED ATTACKING MELEE
-                        return true;
-                    case EUnitType.Ranged: //RANGED ATTACKING RANGED
-                        return true;
-                    case EUnitType.Flying: //RANGED ATTACKING FLYING
-                        return true;
-                }
-                break;
-            case EUnitType.Flying:
-                switch (other.UnitType)
-                {
-                    case EUnitType.Melee: //FLYING ATTACKING MELEE
-                        return true;
-                    case EUnitType.Ranged: //FLYING ATTACKING RANGED
-                        return true;
-                    case EUnitType.Flying: //FLYING ATTACKING FLYING
-                        return false;
-                }
-                break;
-        }
-        return false;
     }
 
 }

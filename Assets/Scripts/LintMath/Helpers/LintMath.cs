@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class LintMath 
-{    
+public static class LintMath
+{
     //These need to match!
     public const long Float2Lint = 10000;
     public const float Lint2Float = 0.0001f;
     private const long SqrtFloat2Lint = 100;
 
-    public const long HALF_PI = 15708; 
+    public const long HALF_PI = 15708;
     public const long PI = 31416;
     public const long PI_2 = 62832;
 
-    public static int Factorial (int v)
+    public static int Factorial(int v)
     {
         if (v <= 1)
         {
             return 1;
         }
-        return v * Factorial(v-1);
+        return v * Factorial(v - 1);
     }
-    
-    public static Lint Max (Lint l1, Lint l2)
+
+    public static Lint Max(Lint l1, Lint l2)
     {
         return (l1 > l2) ? l1 : l2;
     }
@@ -31,7 +31,7 @@ public static class LintMath
     {
         return (l1 < l2) ? l1 : l2;
     }
-    
+
     public static Lint Sqrt(Lint num)
     {
         long res = 0;
@@ -55,23 +55,23 @@ public static class LintMath
         return res * SqrtFloat2Lint;
     }
 
-    public static Lint Pow (Lint l, int p)
+    public static Lint Pow(Lint l, int p)
     {
         if (p == 0)
         {
             return LintMath.Float2Lint;
-        } 
+        }
 
         if (p == 1)
         {
             return l;
         }
 
-        return l * Pow (l, p-1);
-       
+        return l * Pow(l, p - 1);
+
     }
 
-    public static Lint Abs (Lint l)
+    public static Lint Abs(Lint l)
     {
         if (l < 0) return -l;
         return l;
@@ -84,7 +84,7 @@ public static class LintMath
     /// <param name="angle"></param>
     /// <returns></returns>
     private static Lint ClampAngle(Lint angle)
-    {        
+    {
         //9 % 4 = 1
         //860 % 360 = 140
 
@@ -112,9 +112,9 @@ public static class LintMath
     /// </summary>
     /// <param name="angle in RADIANS"></param>
     /// <returns></returns>
-    public static Lint Sin (Lint angle)
+    public static Lint Sin(Lint angle)
     {
-        angle = ClampAngle(angle);        
+        angle = ClampAngle(angle);
 
         //Increase number of loops for higher precision
         int nLoops = 5;
@@ -184,7 +184,7 @@ public static class LintMath
     /// <param name="y"></param>
     /// <param name="x"></param>
     /// <returns></returns>
-    public static Lint Atan2 (Lint y, Lint x)
+    public static Lint Atan2(Lint y, Lint x)
     {
         Lint ay = Abs(y);
         Lint ax = Abs(x);
@@ -192,6 +192,8 @@ public static class LintMath
         //When y is greater than x, y/x is greater than 1
         bool invert = ay > ax;
 
+
+        if (ay == 0 && ax == 0) return 0;
         Lint z = invert ? ax / ay : ay / ax;
 
         Lint angle = Atan(z);
@@ -204,7 +206,7 @@ public static class LintMath
         return angle + HALF_PI;
     }
 
-    public static Lint Asin (Lint l)
+    public static Lint Asin(Lint l)
     {
         bool inverse = l < 0;
 
@@ -214,7 +216,7 @@ public static class LintMath
         {
             Debug.LogError($"{l} is greater than maximum allowed {Float2Lint} in Asin. Returning 0");
             return 0;
-        }            
+        }
 
         //Increase number of loops for higher precision
         int nLoops = 5;
