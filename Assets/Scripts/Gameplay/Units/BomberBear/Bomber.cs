@@ -11,7 +11,7 @@ public class Bomber : Unit
 
     private bool inCooldown;
 
-    private bool _drop = true;
+    private bool _drop = false;
 
     [SerializeField]
     private int _dropSpeed = 400;
