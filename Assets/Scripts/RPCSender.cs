@@ -1,12 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Photon.Pun;
 using UnityEngine;
 
-public class RPCSender : Singleton<RPCSender>
+public class RPCSender : MonoBehaviour
 {
     private Dictionary<uint, List<InputData>> timeToInputs = new Dictionary<uint, List<InputData>>();
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     [PunRPC]
     public void SendInputData(string inputDataJson)

@@ -63,16 +63,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b18b542ca2b9fc42af5b1d6b0ed9825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitType: 0
   rotateSpeed:
     value: 150
   moveSpeed:
     value: 250
+  boostedMoveSpeed:
+    value: 300
   attackRange:
     value: 10000
   attackInterval: 50
   delayToDoDamageOnAttack: 25
   attackPower: 50
   health: 1000
+  maxHealth: 1000
   team: 0
   coloredMeshes: []
   fireInterval: 300
@@ -88,7 +92,7 @@ MonoBehaviour:
   fireSpeed:
     value: 500
   fireSphere: {fileID: 5690990025954904093}
-  fireParticles: {fileID: 0}
+  fireParticles: {fileID: 2904498776499483535}
 --- !u!114 &3473177478533979191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +487,11 @@ PrefabInstance:
 --- !u!4 &3062838905996808321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4317874184272834, guid: bccc7a794e75b2a44a4b0dac69160b7b, type: 3}
+  m_PrefabInstance: {fileID: 3066446483719957315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2904498776499483535 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198421077076039884, guid: bccc7a794e75b2a44a4b0dac69160b7b, type: 3}
   m_PrefabInstance: {fileID: 3066446483719957315}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3660322562765098243
