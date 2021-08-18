@@ -37,7 +37,7 @@ public class BuffArea : MonoBehaviour
 		TryToBuffUnit(unit);
 	}
 
-	void OnLintTriggerStop(LintCollider other)
+	void OnLintTriggerExit(LintCollider other)
 	{
 		var unit = other.GetComponent<Unit>();
 		if (unit == null && unit.team != _instigator.team) return;
