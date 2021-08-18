@@ -129,10 +129,11 @@ public class IceGolem : Unit
         if (_currentTarget != null)
         {
             _currentTarget.attackPower = _currentTargetAttackPower;
-            Destroy(_currentIceFx);
             _canFreeze = true;
             _currentTargetAnimator.speed = 1;
         }
+
+        Destroy(_currentIceFx);
     }
 
     private void Death()
