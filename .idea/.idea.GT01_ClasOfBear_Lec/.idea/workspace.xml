@@ -2,77 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870d3446-7e44-4741-9a28-ddddd4f6a89c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GT01_ClasOfBear_Lec/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GT01_ClasOfBear_Lec/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/FireSphere1.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/FireSphere1.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/FireSphere2.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/FireSphere2.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/Smoke26.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/Smoke26.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/SparkSphere.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/SparkSphere.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/Trail67.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Materials/Trail67.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Explosion.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Explosion.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 0.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 0.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 1.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 1.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 2.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 2.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 3.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire 3.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro blue.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro blue.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro green.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro green.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro orange.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro orange.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro red.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro red.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro yellow.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/Magic fire pro yellow.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/RotatorPS1.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/RotatorPS1.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/RotatorPS2.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Prefabs/RotatorPS2.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Shaders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Shaders/FireSphere.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Shaders/FireSphere.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/FireSphere1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/FireSphere1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/FireSphere2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/FireSphere2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/Smoke26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/Smoke26.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/Trail67.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Procedural fire/Textures/Trail67.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Projectile.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Hovl Studio/Projectile.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/FireBallProjectile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/FireBallProjectile.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/SkeletonUnit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/SkeletonUnit.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GT01_ClasOfBear_Lec/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GT01_ClasOfBear_Lec/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/FantasyMonster/Skeleton/Ani/Skeleton@Run.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/FantasyMonster/Skeleton/Ani/Skeleton@Run.FBX.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/FantasyMonster/Skeleton/Skeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/FantasyMonster/Skeleton/Skeleton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/Barbarian Shaman/witch doctor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/Barbarian Shaman/witch doctor.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/Barbarian Shaman/yi_liao_yuan_ren_001_ty.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/Barbarian Shaman/yi_liao_yuan_ren_001_ty.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/WitchAnimation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/WitchAnimation.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/Barbarian Shaman/witch doctor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/Witch/AShopExport/Barbarian Shaman/witch doctor.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Archer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Archer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Unit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Unit.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LintMath/Core/LintBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LintMath/Core/LintBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +28,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/Archer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/SkeletonUnit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LintMath/Core/LintBehaviour.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/FireBallProjectile.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1wmdfCTpWXEnMCVaADQyRQSK9gp" />
@@ -144,6 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1629067800956</updated>
       <workItem from="1629067818162" duration="20977000" />
+      <workItem from="1629246506314" duration="6087000" />
     </task>
     <servers />
   </component>
