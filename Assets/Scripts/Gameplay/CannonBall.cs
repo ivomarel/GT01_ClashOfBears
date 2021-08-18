@@ -20,7 +20,7 @@ public class CannonBall : LintBehaviour
 
     private void ShootTarget()
     {
-        this.lintTransform.position += Forward * speed;
+        this.lintTransform.position += (Forward * speed).normalized;
     }
 
     private void OnLintTriggerEnter(LintCollider other)
@@ -36,8 +36,11 @@ public class CannonBall : LintBehaviour
                 {
                     tower.health -= (int)DamagePower;
                 }
-                Destroy(unit.gameObject);
-                Destroy(this.gameObject);
+                else
+                {
+                    Destroy(unit.gameObject);
+                    Destroy(this.gameObject);
+                }
             }
         }
     }

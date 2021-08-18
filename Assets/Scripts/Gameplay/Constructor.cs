@@ -13,14 +13,14 @@ public class Constructor : Unit
     private uint _buildTimer;
     private uint _buildTime = 500;
     public int _maxHealth;
-    [SerializeField] private int _randomSeed;
+
     private int _posLimit = 20;
 
 
     protected override void Start()
     {
         base.Start();
-        Random.seed = _randomSeed; //establish a random seed to make the random always the same relative to the seed
+
         _maxHealth = _towerPrefab.health;
         _towerPosition = GetNewTowerPos();
     }
