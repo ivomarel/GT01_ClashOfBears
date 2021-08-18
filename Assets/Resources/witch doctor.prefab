@@ -53,11 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: 0
+      value: -44529
     y:
       value: 0
     z:
-      value: 0
+      value: -51074
   radians:
     x:
       value: 0
@@ -115,16 +115,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62dbe658b85fbbb49bea20e531b6283f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitType: 0
   rotateSpeed:
     value: 150
   moveSpeed:
     value: 200
+  boostedMoveSpeed:
+    value: 300
   attackRange:
     value: 10000
   attackInterval: 500
   delayToDoDamageOnAttack: 25
   attackPower: 50
   health: 1500
+  maxHealth: 1000
   team: 0
   coloredMeshes: []
   skeleton: {fileID: 4986985412745182128, guid: ab608a69ffd6c6544a116b695908b60d, type: 3}
@@ -1944,7 +1948,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: m_Name
-      value: CFX3_MagicAura_B_Runic
+      value: SkeletonSpawnAura
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: m_RootOrder
@@ -2004,19 +2008,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
       propertyPath: m_Materials.Array.size

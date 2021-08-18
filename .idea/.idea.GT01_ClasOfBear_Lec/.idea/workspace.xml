@@ -2,59 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870d3446-7e44-4741-9a28-ddddd4f6a89c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GT01_ClasOfBear_Lec/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GT01_ClasOfBear_Lec/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX Easy Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX Easy Editor/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/CFX3 Prefabs/Magic Misc/CFX3_MagicAura_B_Runic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/CFX3 Prefabs/Magic Misc/CFX3_MagicAura_B_Runic.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_AutoStopLoopedEffect.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_AutoStopLoopedEffect.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_New.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_New.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDirectionTranslate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDirectionTranslate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RotateCamera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RotateCamera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_Translate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_Translate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_AutoRotate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_AutoRotate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_LightFlicker.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_LightFlicker.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_LightIntensityFade.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/Scripts/CFX_LightIntensityFade.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/AutoTurnOff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/AutoTurnOff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/CFX3 Prefabs/Magic Misc/CFX3_MagicAura_B_Runic.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/GT01_Arnav/JMO Assets/Cartoon FX/CFX3 Prefabs/Magic Misc/CFX3_MagicAura_B_Runic.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/StylizedWater/Materials/StylizedWater_Mobile.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/StylizedWater/Materials/StylizedWater_Mobile.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX Easy Editor/Editor/CFXEasyEditor.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_AutoStopLoopedEffect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_AutoStopLoopedEffect.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_New.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_New.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDir.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDirectionTranslate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RandomDirectionTranslate.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RotateCamera.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_RotateCamera.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_Translate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Demo/Assets/CFX_Demo_Translate.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Materials/Light/CFX3_AuraRunic ADD.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Materials/Light/CFX3_AuraRunic ADD.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Materials/Light/CFX3_GlowStar ADD.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Materials/Light/CFX3_GlowStar ADD.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Materials/Stretched/CFX_RayRounded.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Materials/Stretched/CFX_RayRounded.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoRotate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoRotate.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightFlicker.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightFlicker.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightIntensityFade.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_LightIntensityFade.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Textures/CFX3_T_AuraRunic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Textures/CFX3_T_AuraRunic.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Textures/CFX3_T_GlowStar.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Textures/CFX3_T_GlowStar.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Textures/CFX_T_RayRounded.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Textures/CFX_T_RayRounded.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,9 +18,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/FireBallProjectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/GT01_Arnav/WitchUnit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/JMO Assets/Cartoon FX/Scripts/CFX_AutoDestructShuriken.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -148,6 +100,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
