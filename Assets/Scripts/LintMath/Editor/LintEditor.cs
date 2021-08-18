@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -12,3 +14,5 @@ public class LintEditor : PropertyDrawer
         valueProp.intValue = EditorGUI.IntField(position, property.name, valueProp.intValue);
     }
 }
+
+#endif

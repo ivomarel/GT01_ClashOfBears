@@ -10,6 +10,8 @@ public class NetworkManager : MonoBehaviour
     private uint syncInterval = 10;
 
     private uint lastSyncTime;
+
+    private RPCSender rpcSender;
     
     // Start is called before the first frame update
     void Start()
@@ -19,23 +21,33 @@ public class NetworkManager : MonoBehaviour
         {
             PhotonNetwork.Instantiate("[RPCSender]", Vector3.zero, Quaternion.identity);
         }
-        
-        //We send our LocalInput once when LintTime.time = 0.
-        SendLocalInput();
     }
 
     void FixedUpdate()
     {
+        if (rpcSender == null)
+        {
+            rpcSender = FindObjectOfType<RPCSender>();
+            if (rpcSender == null)
+                return;
+        }
+        
+        if (LintTime.time == 0)
+        {
+            //We send our LocalInput once when LintTime.time = 0.
+            SendLocalInput();
+        }
+        
         if (LintTime.time == lastSyncTime + syncInterval)
         {
             //If we haven't received all the inputs yet - stop the simulation.
-            if (!RPCSender.Instance.AllInputsReceived(LintTime.time))
+            if (!rpcSender.AllInputsReceived(LintTime.time))
             {
                 return;
             }
             
             //Process inputs
-            List<InputData> inputDatas = RPCSender.Instance.GetInputs(LintTime.time);
+            List<InputData> inputDatas = rpcSender.GetInputs(LintTime.time);
             foreach (InputData inputData in inputDatas)
             {
                 foreach (CreateAction action in inputData.actions)
@@ -68,7 +80,7 @@ public class NetworkManager : MonoBehaviour
             });
 
         //RPCSender.Instance.SendInputData(inputDataJson);
-        RPCSender.Instance.GetComponent<PhotonView>().RPC("SendInputData", RpcTarget.All, inputDataJson);
+        rpcSender.GetComponent<PhotonView>().RPC("SendInputData", RpcTarget.All, inputDataJson);
         
         //Reset the inputData after syncing.
         InputManager.Instance.inputData = new InputData();
