@@ -1860,7 +1860,7 @@ MonoBehaviour:
   boostedMoveSpeed:
     value: 300
   attackRange:
-    value: 0
+    value: 10000
   attackInterval: 100
   delayToDoDamageOnAttack: 1
   attackPower: 0
