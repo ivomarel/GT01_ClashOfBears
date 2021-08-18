@@ -52,7 +52,7 @@ public class NetworkManager : MonoBehaviour
             {
                 foreach (CreateAction action in inputData.actions)
                 {
-                    action.Execute();
+                    action.Execute(inputData.team);
                 }
             }
             
@@ -70,7 +70,8 @@ public class NetworkManager : MonoBehaviour
         //Sending new inputs
         //I.e. when we are syncing in step '10', we send the actions that should be executed in step 20.
         InputManager.Instance.inputData.timeToExecute = LintTime.time + syncInterval;
-
+        InputManager.Instance.inputData.team = PhotonNetwork.LocalPlayer.ActorNumber;
+        
         //TODO, when serializing, we shouldn't include all get-only properties
         string inputDataJson = JsonConvert.SerializeObject(InputManager.Instance.inputData, Formatting.None,
             new JsonSerializerSettings()

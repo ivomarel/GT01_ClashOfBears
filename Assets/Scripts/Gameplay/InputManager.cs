@@ -84,10 +84,11 @@ public class CreateAction
     public string unitName;
     public LintVector3 position;
     
-    public void Execute()
+    public void Execute(int team)
     {
         Unit unitPrefab = Resources.Load<Unit>(unitName);
         Unit unitClone = GameObject.Instantiate(unitPrefab);
+        unitClone.team = team;
         unitClone.lintTransform.position = position;
     }
 }
