@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +7,16 @@ public class LintPhysics : LintBehaviour
 
     private Dictionary<long, CollisionPair> triggerMap = new Dictionary<long, CollisionPair>();
 
+    private long id;
 
     private void Awake()
     {
         colliders = new List<LintCollider>();
+
+        foreach (CollisionPair pair in triggerMap.Values)
+        {
+            pair.isColliding = false;
+        }
     }
 
     public override void Step()
@@ -55,8 +60,7 @@ public class LintPhysics : LintBehaviour
                    
                     if (triggerMap.ContainsKey(id))
                     {
-                        var x = triggerMap[id];
-                        x.isColliding = true;
+                        triggerMap[id].isColliding = true;
                     }
                     else
                     {
