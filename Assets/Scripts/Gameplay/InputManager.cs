@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LintInput : LintBehaviour
+public class InputManager : Singleton<InputManager>
 {
     public LayerMask hitMask;
 
@@ -16,7 +16,7 @@ public class LintInput : LintBehaviour
     
     private Camera mainCam;
 
-    private InputData inputData = new InputData();
+    public InputData inputData = new InputData();
 
     private Unit[] availableUnits;
     private int index;
@@ -52,11 +52,12 @@ public class LintInput : LintBehaviour
                 CreateAction action = new CreateAction();
                 action.unitName = currentUnit;
                 action.position = (LintVector3)hitInfo.point;
-                inputData.actions.Enqueue(action);
+                inputData.actions.Add(action);
             }
         }
     }
-
+    
+    /*
     public override void Step()
     {
         base.Step();
@@ -66,23 +67,27 @@ public class LintInput : LintBehaviour
             CreateUnit(action.unitName, action.position);
         }
     }
-
-    private void CreateUnit(string unitName, LintVector3 pos)
-    {
-        //Placeholder until we can put this inside out step system
-        Unit unitPrefab = Resources.Load<Unit>(unitName);
-        Unit unitClone = Instantiate(unitPrefab);
-        unitClone.lintTransform.position = pos;
-    }
+    */
+   
+    
 }
 
 public class InputData
 {
-    public Queue<CreateAction> actions = new Queue<CreateAction>();
+    public int team;
+    public uint timeToExecute;
+    public List<CreateAction> actions = new List<CreateAction>();
 }
 
 public class CreateAction
 {
     public string unitName;
     public LintVector3 position;
+    
+    public void Execute()
+    {
+        Unit unitPrefab = Resources.Load<Unit>(unitName);
+        Unit unitClone = GameObject.Instantiate(unitPrefab);
+        unitClone.lintTransform.position = position;
+    }
 }

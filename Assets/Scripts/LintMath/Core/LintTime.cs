@@ -7,7 +7,7 @@ public class LintTime : MonoBehaviour
 {
     public static uint time;
 
-    private void FixedUpdate()
+    public static void Step()
     {
         time++;
         //TODO Optimize

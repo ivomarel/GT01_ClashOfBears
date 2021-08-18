@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class CurrentUnitUI : MonoBehaviour
 {
-    public LintInput input;
+    [FormerlySerializedAs("input")] public InputManager inputManager;
     
     private Text text;
     // Start is called before the first frame update
@@ -17,6 +18,6 @@ public class CurrentUnitUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"<{input.currentUnit}>";
+        text.text = $"<{inputManager.currentUnit}>";
     }
 }

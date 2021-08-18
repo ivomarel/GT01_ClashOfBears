@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using Newtonsoft.Json;
+using Photon.Pun.Demo.SlotRacer.Utils;
 
 public class NetworkManager : MonoBehaviour
 {
-    
+    private uint syncInterval = 10;
+
+    private uint lastSyncTime;
     
     // Start is called before the first frame update
     void Start()
@@ -15,15 +19,58 @@ public class NetworkManager : MonoBehaviour
         {
             PhotonNetwork.Instantiate("[RPCSender]", Vector3.zero, Quaternion.identity);
         }
+        
+        //We send our LocalInput once when LintTime.time = 0.
+        SendLocalInput();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        //TEMP for testing
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (LintTime.time == lastSyncTime + syncInterval)
         {
-            RPCSender.Instance.GetComponent<PhotonView>().RPC("SendInputData", RpcTarget.All, "Hello gang!");
+            //If we haven't received all the inputs yet - stop the simulation.
+            if (!RPCSender.Instance.AllInputsReceived(LintTime.time))
+            {
+                return;
+            }
+            
+            //Process inputs
+            List<InputData> inputDatas = RPCSender.Instance.GetInputs(LintTime.time);
+            foreach (InputData inputData in inputDatas)
+            {
+                foreach (CreateAction action in inputData.actions)
+                {
+                    action.Execute();
+                }
+            }
+            
+
+            SendLocalInput();
         }
+
+        LintTime.Step();
     }
 
+    private void SendLocalInput()
+    {
+        lastSyncTime = LintTime.time;
+
+        //Sending new inputs
+        //I.e. when we are syncing in step '10', we send the actions that should be executed in step 20.
+        InputManager.Instance.inputData.timeToExecute = LintTime.time + syncInterval;
+
+        //TODO, when serializing, we shouldn't include all get-only properties
+        string inputDataJson = JsonConvert.SerializeObject(InputManager.Instance.inputData, Formatting.None,
+            new JsonSerializerSettings()
+            {
+                //This will ignore error messages for our LintVector3.normalized property
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+
+        //RPCSender.Instance.SendInputData(inputDataJson);
+        RPCSender.Instance.GetComponent<PhotonView>().RPC("SendInputData", RpcTarget.All, inputDataJson);
+        
+        //Reset the inputData after syncing.
+        InputManager.Instance.inputData = new InputData();
+    }
 }
