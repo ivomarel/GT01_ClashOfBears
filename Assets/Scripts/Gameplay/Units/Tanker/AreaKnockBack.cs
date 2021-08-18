@@ -6,7 +6,7 @@ public class AreaKnockBack : LintBehaviour
 {
     public int team;
     [SerializeField]
-    private float _knockTime = 3;
+    private uint _knockTime = 100;
     [SerializeField]
     private uint _range;
     [SerializeField]
@@ -21,7 +21,8 @@ public class AreaKnockBack : LintBehaviour
     private void Start()
     {
         //destry this after _knockTime
-        Destroy(gameObject, _knockTime);
+        //Destroy(gameObject, _knockTime);
+        Linvoke(Destroy, _knockTime);
         //get col of this object
         var col = GetComponent<LintSphereCollider>();
         //set knock range to this col's radius 
@@ -40,12 +41,16 @@ public class AreaKnockBack : LintBehaviour
                 // get the _knockDir
                 _knockDir = _unit.lintTransform.position - this.lintTransform.position;
                 //add a speed to the _unit
-                _unit.lintTransform.position += _knockDir * _knockSpeed;
+                _unit.lintTransform.position += _knockDir.normalized * _knockSpeed;
             }
         }
     }
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, _range * 0.0001f);
+    }
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

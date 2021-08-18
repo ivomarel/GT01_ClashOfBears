@@ -25,6 +25,12 @@ public class NetworkManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(PhotonNetwork.IsConnected==false)
+        {
+            LintTime.Step();
+            return;
+        }
+
         if (rpcSender == null)
         {
             rpcSender = FindObjectOfType<RPCSender>();

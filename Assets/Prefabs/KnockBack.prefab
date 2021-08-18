@@ -86,6 +86,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  _knockTime: 0.2
+  _knockTime: 100
   _range: 50000
   _knockSpeed: 2500
