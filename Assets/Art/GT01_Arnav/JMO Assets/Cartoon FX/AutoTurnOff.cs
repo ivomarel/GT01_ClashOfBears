@@ -15,13 +15,11 @@ public class AutoTurnOff : MonoBehaviour
 
         while (true && ps != null)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             if (!ps.IsAlive(true))
             {
                 this.gameObject.SetActive(false);
             }
-
-            break;
         }
     }
 }
