@@ -6,10 +6,15 @@ public class BuffBear : Unit
 {
 	[SerializeField] private BuffArea buff;
 	
+	protected override void Awake()
+	{
+		base.Awake();
+		buff.SetOwner(this);
+	}
+	
 	protected override void DoDamage()
 	{
 		base.DoDamage();
-		buff.SetOwner(this);
 		buff.enabled = true;
 	}
 }
