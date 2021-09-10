@@ -6,13 +6,7 @@ public class InputManager : Singleton<InputManager>
 {
     public LayerMask hitMask;
 
-    public string currentUnit
-    {
-        get
-        {
-            return availableUnits[index].name;
-        }
-    }
+    public Unit currentUnitPrefab;
     
     private Camera mainCam;
 
@@ -25,11 +19,11 @@ public class InputManager : Singleton<InputManager>
     private void Awake()
     {
         mainCam = Camera.main;
-        availableUnits = Resources.LoadAll<Unit>("");
     }
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             index--;
@@ -41,8 +35,9 @@ public class InputManager : Singleton<InputManager>
             index++;
             if (index > availableUnits.Length - 1) index = 0;
         }
+        */
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentUnitPrefab)
         {
             Ray camRay = mainCam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
@@ -50,7 +45,7 @@ public class InputManager : Singleton<InputManager>
             {
                 //We use CreateAction because we don't want to directly execute action form the Update function (everything should be handled in STEP)
                 CreateAction action = new CreateAction();
-                action.unitName = currentUnit;
+                action.unitName = currentUnitPrefab.name;
                 action.position = (LintVector3)hitInfo.point;
                 inputData.actions.Add(action);
             }
@@ -86,7 +81,7 @@ public class CreateAction
     
     public void Execute(int team)
     {
-        Unit unitPrefab = Resources.Load<Unit>(unitName);
+        Unit unitPrefab = Resources.Load<Unit>($"Units/{unitName}");
         Unit unitClone = GameObject.Instantiate(unitPrefab);
         unitClone.team = team;
         unitClone.lintTransform.position = position;

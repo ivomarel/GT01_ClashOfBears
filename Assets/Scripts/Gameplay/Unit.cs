@@ -6,6 +6,8 @@ using UnityEngine;
 public class Unit : LintBehaviour
 {
     //Tweakables
+    public Sprite uiSprite;
+
     public EUnitType UnitType;
     public Lint rotateSpeed = 150;
     public Lint moveSpeed = 250;
@@ -83,12 +85,18 @@ public class Unit : LintBehaviour
         }
         else
         {
-            //anim.SetFloat("Speed", 0);
+            if (anim)
+            {
+                anim.SetFloat("Speed", 0);
+            }
+           
         }
     }
 
     protected virtual void OnAttacking()
     {
+        RotateToTarget();
+
         if (LintTime.time > lastAttackTime + attackInterval)
         {
             Attack();
@@ -138,12 +146,17 @@ public class Unit : LintBehaviour
     protected virtual void OnMovingToTarget()
     {
         //dirAtoB = B-A
+        RotateToTarget();
+        LintVector3 dirToTarget = target.lintTransform.position - lintTransform.position;
+        lintTransform.position += dirToTarget.normalized * currentSpeed;
+        anim.SetFloat("Speed", 1);
+    }
+    
+    private void RotateToTarget ()
+    {
         LintVector3 dirToTarget = target.lintTransform.position - lintTransform.position;
         Lint angle = LintMath.Atan2(dirToTarget.z, dirToTarget.x);
         lintTransform.radians.y = angle;
-
-        lintTransform.position += dirToTarget.normalized * currentSpeed;
-        anim.SetFloat("Speed", 1);
     }
 
     public void SetMoveSpeed(bool isBoosted)
