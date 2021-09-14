@@ -53,7 +53,6 @@ public class LintPhysics : LintBehaviour
                         c1 = temp;
                     }
                     
-                    
                     //Get a unique ID by using the two integers and storing them in a long
                     //(by bitshifting the first integer 32 spots it will take the first half of the long, and the second integer will take the second half)
                     long id = (((long)c1.GetInstanceID()) << 32) + c2.GetInstanceID();
@@ -121,7 +120,7 @@ public class LintPhysics : LintBehaviour
     private static bool SphereToSphere(LintSphereCollider c1, LintSphereCollider c2)
     {
         //Get the offset between the 2 objects
-        LintVector3 offset = c1.lintTransform.position - c2.lintTransform.position;
+        LintVector3 offset = c1.lintTransform.position + (c1.lintTransform.rotationMatrix * c1.offset) - c2.lintTransform.position + (c2.lintTransform.rotationMatrix * c2.offset);
 
         //Get the two radius' combined
         Lint radiusCombined = c1.radius + c2.radius;
@@ -191,7 +190,9 @@ public class LintPhysics : LintBehaviour
     private static Lint GetDistanceFromOBBToSphere(LintSphereCollider sphere, LintBoxCollider box)
     {
         // A distance vector from the center of the sphere to the OBB box center
-        LintVector3 distanceVector = sphere.lintTransform.position - box.lintTransform.position;
+        LintVector3 distanceVector = sphere.lintTransform.position + (sphere.lintTransform.rotationMatrix* sphere.offset) 
+            - (box.lintTransform.position + (box.lintTransform.rotationMatrix * box.offset));
+
         Lint distance = 0;
 
         // To store projection length

@@ -228,6 +228,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 0
+    z:
+      value: 0
   extents:
     x:
       value: 5000
@@ -466,6 +473,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 0
+    z:
+      value: 0
   extents:
     x:
       value: 5000
@@ -502,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27a763da6b3ab84db293f3993a02165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoRun: 1
 --- !u!4 &245735960
 Transform:
   m_ObjectHideFlags: 0
@@ -709,6 +724,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86589766c683a84480bfb959e5bc26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 0
+    z:
+      value: 0
   radius:
     value: 5000
 --- !u!114 &1273865207

@@ -11,10 +11,16 @@ public class UnitButtons : MonoBehaviour
     {
         unitButtonOriginal = GetComponentInChildren<UnitButton>();
         Unit[] unitPrefabs = Resources.LoadAll<Unit>("Units");
+        bool firstUnit = true;
         foreach(Unit unitPrefab in unitPrefabs)
         {
             UnitButton unitButtonClone = Instantiate(unitButtonOriginal, unitButtonOriginal.transform.parent);
             unitButtonClone.Init(unitPrefab);
+            if (firstUnit)
+            {
+                unitButtonClone.OnUnitToggle(true);
+                firstUnit = false;
+            }
         }
         unitButtonOriginal.gameObject.SetActive(false);
     }

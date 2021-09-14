@@ -5,7 +5,7 @@ using UnityEngine;
 public class Archer : Unit
 {
     public LintVector3 spawnOffset;
-    public Arrow arrowPrefab;
+    public Projectile arrowPrefab;
 
     protected override void Attack()
     {
@@ -16,8 +16,9 @@ public class Archer : Unit
 
     private void SpawnArrow()
     {
-        Arrow arrowClone = Instantiate(arrowPrefab);
+        Projectile arrowClone = Instantiate(arrowPrefab);
         arrowClone.lintTransform.position = lintTransform.position + spawnOffset;
-        arrowClone.lintTransform.radians = lintTransform.radians;
+        arrowClone.target = this.target;
+        arrowClone.SpawnnerTeam = team;
     }
 }

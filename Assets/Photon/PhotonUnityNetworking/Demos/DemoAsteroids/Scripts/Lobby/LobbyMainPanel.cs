@@ -2,6 +2,7 @@
 using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Photon.Pun.Demo.Asteroids
@@ -255,6 +256,11 @@ namespace Photon.Pun.Demo.Asteroids
             {
                 Debug.LogError("Player Name is invalid.");
             }
+        }
+
+        public void OnLocalButtonClicked()
+        {
+            SceneManager.LoadScene("GameScene");
         }
 
         public void OnRoomListButtonClicked()

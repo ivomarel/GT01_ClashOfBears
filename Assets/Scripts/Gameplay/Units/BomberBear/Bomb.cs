@@ -39,18 +39,6 @@ public class Bomb : LintBehaviour
 
     }
 
-    private void OnLintTriggerEnter(LintCollider other)
-    {
-        Unit unit = other.GetComponent<Unit>();
-
-        if (unit && !_doOnce)
-        {
-            _doOnce = true;
-            ExplodeFX();
-            Linvoke(DestroyExplosion, _lifespan);
-        }
-    }
-
     private void DestroyExplosion()
     {
         Destroy(this.gameObject);

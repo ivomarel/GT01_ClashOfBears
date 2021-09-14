@@ -1473,9 +1473,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c255e79785e1448b7a6166e8cf9c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSprite: {fileID: 0}
+  UnitType: 0
   rotateSpeed:
     value: 150
   moveSpeed:
+    value: 300
+  boostedMoveSpeed:
     value: 300
   attackRange:
     value: 10000
@@ -1483,6 +1487,7 @@ MonoBehaviour:
   delayToDoDamageOnAttack: 25
   attackPower: 25
   health: 100
+  maxHealth: 1000
   team: 0
   coloredMeshes: []
 --- !u!114 &7825512185191365292
@@ -1497,13 +1502,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 3301
+    z:
+      value: 0
   extents:
     x:
-      value: 5000
+      value: 2058
     y:
-      value: 5000
+      value: 3109
     z:
-      value: 5000
+      value: 2043
 --- !u!1001 &1931984934498719577
 PrefabInstance:
   m_ObjectHideFlags: 0

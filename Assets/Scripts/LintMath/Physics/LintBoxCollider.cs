@@ -10,7 +10,7 @@ public class LintBoxCollider : LintCollider
     {
         get
         {
-            return this.lintTransform.position - this.extents;
+            return this.lintTransform.position + this.offset - this.extents;
         }
     }
 
@@ -18,28 +18,28 @@ public class LintBoxCollider : LintCollider
     {
         get
         {
-            return this.lintTransform.position + this.extents;
+            return this.lintTransform.position + this.offset + this.extents;
         }
     }
 
     public void OnDrawGizmosSelected()
     {
-     //   Gizmos.color = Color.cyan;
-      //  Gizmos.DrawWireCube(transform.position, extents*2);
+        //Gizmos.color = Color.cyan;
+        //Gizmos.DrawWireCube(transform.position, extents*2);
 
         //Drawing all directions vectors (right, up, forward) on this cube
-        foreach(LintVector3 side in GetSides())
+        foreach (LintVector3 side in GetSides())
         {
             Gizmos.DrawRay(this.transform.position, side);
         }
 
         Gizmos.matrix = this.transform.localToWorldMatrix;
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(Vector3.zero, extents*(2 * LintMath.Float2Lint));
+        Gizmos.DrawWireCube(this.offset, extents * (2 * LintMath.Float2Lint));
     }
 
-    public LintVector3[] GetSides ()
-    {        
+    public LintVector3[] GetSides()
+    {
         LintMatrix mx = this.lintTransform.rotationMatrix;
 
         return new LintVector3[]
@@ -50,21 +50,21 @@ public class LintBoxCollider : LintCollider
         };
     }
 
-    public LintVector3[] GetCorners ()
+    public LintVector3[] GetCorners()
     {
         LintMatrix mx = this.lintTransform.rotationMatrix;
 
         //Multiplying any point in space by the rotation matrix, will give us that point as it were rotated by that matrix
         return new LintVector3[]
         {
-            lintTransform.position + mx * new LintVector3(extents.x, extents.y, extents.z),
-            lintTransform.position + mx * new LintVector3(extents.x, extents.y, -extents.z),
-            lintTransform.position + mx * new LintVector3(-extents.x, extents.y, -extents.z),
-            lintTransform.position + mx * new LintVector3(-extents.x, extents.y, extents.z),
-            lintTransform.position + mx * new LintVector3(extents.x, -extents.y, extents.z),
-            lintTransform.position + mx * new LintVector3(extents.x, -extents.y, -extents.z),
-            lintTransform.position + mx * new LintVector3(-extents.x, -extents.y, -extents.z),
-            lintTransform.position + mx * new LintVector3(-extents.x, -extents.y, extents.z)
+            lintTransform.position +  mx * (this.offset + new LintVector3(extents.x, extents.y, extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(extents.x, extents.y, -extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(-extents.x, extents.y, -extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(-extents.x, extents.y, extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(extents.x, -extents.y, extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(extents.x, -extents.y, -extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(-extents.x, -extents.y, -extents.z)),
+            lintTransform.position +  mx * (this.offset + new LintVector3(-extents.x, -extents.y, extents.z))
         };
     }
 }

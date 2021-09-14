@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Bomber : Unit
 {
+    public LintVector3 targetOffset;
     public LintVector3 spawnOffset;
     public Bomb BombPrefab;
     private Unit _currentTarget;
@@ -109,9 +110,9 @@ public class Bomber : Unit
     {
         anim.SetTrigger("Attack");
         anim.SetFloat("Speed", 0);
-        Debug.Log("Spawned Bomb");
         Linvoke(SpawnBomb, delayToDoDamageOnAttack);
     }
+
 
     private void SpawnBomb()
     {

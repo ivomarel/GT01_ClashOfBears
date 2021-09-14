@@ -69,11 +69,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6871222198024934928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be835cd0c7288e149b9c059d1318a009, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cf6538e77e7a764e91380eaf79679cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed:
-    value: 800
+    value: 5000
+  Damage: 10
+  target: {fileID: 0}
+  LifeTime: 300
+  SpawnnerTeam: 0
 --- !u!114 &5664915350259733048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 0
+    z:
+      value: 0
   extents:
     x:
       value: 344

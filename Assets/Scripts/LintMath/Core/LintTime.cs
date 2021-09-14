@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class LintTime : MonoBehaviour
 {
     public static uint time;
+
+    public bool autoRun;
 
     public static void Step()
     {
@@ -17,4 +20,13 @@ public class LintTime : MonoBehaviour
             behaviour.Step();
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (autoRun)
+        {
+            Step();
+        }
+    }
+
 }

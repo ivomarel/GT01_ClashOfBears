@@ -1809,11 +1809,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -44529
+      value: -85000
     y:
       value: 0
     z:
-      value: -51074
+      value: 29700
   radians:
     x:
       value: 0
@@ -1833,11 +1833,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 4734
+    z:
+      value: 0
   extents:
     x:
       value: 3095
     y:
-      value: 11190
+      value: 4820
     z:
       value: 2272
 --- !u!114 &3629313389411976469
@@ -1853,6 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSprite: {fileID: 21300000, guid: 98840ed4a2252064ab630d6911ef9f54, type: 3}
+  cost: 500
   UnitType: 0
   rotateSpeed:
     value: 150
@@ -2041,6 +2049,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86589766c683a84480bfb959e5bc26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 0
+    z:
+      value: 0
   radius:
     value: 20026
 --- !u!114 &3877559826286372084

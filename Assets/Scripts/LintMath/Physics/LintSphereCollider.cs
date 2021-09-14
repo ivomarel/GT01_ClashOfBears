@@ -9,6 +9,6 @@ public class LintSphereCollider : LintCollider
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, radius * LintMath.Lint2Float);
+        Gizmos.DrawWireSphere(transform.position + (Vector3)(this.transform.localToWorldMatrix * ((Vector3)offset)), radius * LintMath.Lint2Float);
     }
 }

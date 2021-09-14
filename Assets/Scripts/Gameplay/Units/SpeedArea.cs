@@ -48,7 +48,7 @@ public class SpeedArea:LintBehaviour{
 		}
 
 		Unit unit = other.GetComponent<Unit>();
-		if(unit.team == myTeam && unit != myBear){
+		if(unit && unit.team == myTeam && unit != myBear){
 			unit.SetMoveSpeed(false);
 			if(buffedUnits.Contains(unit) && unit != null){
 				buffedUnits.Remove(unit);

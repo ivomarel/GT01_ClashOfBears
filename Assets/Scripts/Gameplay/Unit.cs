@@ -8,6 +8,8 @@ public class Unit : LintBehaviour
     //Tweakables
     public Sprite uiSprite;
 
+    public int cost = 1000;
+
     public EUnitType UnitType;
     public Lint rotateSpeed = 150;
     public Lint moveSpeed = 250;
@@ -25,6 +27,7 @@ public class Unit : LintBehaviour
     //References
     public Renderer[] coloredMeshes;
     protected Animator anim;
+    protected LintCollider coll;
 
     //Runtime vars
     protected Unit target;
@@ -34,6 +37,7 @@ public class Unit : LintBehaviour
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        coll = GetComponent<LintCollider>();
     }
 
     protected virtual void Start()
@@ -151,6 +155,11 @@ public class Unit : LintBehaviour
         lintTransform.position += dirToTarget.normalized * currentSpeed;
         anim.SetFloat("Speed", 1);
     }
+
+    public virtual LintVector3 GetTargetPosition ()
+    {
+        return this.lintTransform.position + coll.offset;
+    }
     
     private void RotateToTarget ()
     {
@@ -233,14 +242,6 @@ public class Unit : LintBehaviour
         return false;
     }
 
-}
-
-
-public class CollisionPair
-{
-    public bool isColliding;
-    public LintCollider c1;
-    public LintCollider c2;
 }
 
 public enum EUnitType

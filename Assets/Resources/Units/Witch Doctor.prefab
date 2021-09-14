@@ -53,11 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -44529
+      value: 0
     y:
       value: 0
     z:
-      value: -51074
+      value: 0
   radians:
     x:
       value: 0
@@ -77,11 +77,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 11706
+    z:
+      value: 0
   extents:
     x:
       value: 5974
     y:
-      value: 21406
+      value: 10990
     z:
       value: 7710
 --- !u!95 &4228726134198683645
@@ -116,7 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSprite: {fileID: 21300000, guid: f5562b4c72bcd2747be7a881ce18ca4c, type: 3}
-  UnitType: 0
+  cost: 750
+  UnitType: 1
   rotateSpeed:
     value: 150
   moveSpeed:
@@ -124,8 +132,8 @@ MonoBehaviour:
   boostedMoveSpeed:
     value: 300
   attackRange:
-    value: 10000
-  attackInterval: 500
+    value: 100000
+  attackInterval: 350
   delayToDoDamageOnAttack: 25
   attackPower: 50
   health: 1500
@@ -134,7 +142,7 @@ MonoBehaviour:
   coloredMeshes: []
   skeleton: {fileID: 4986985412745182128, guid: ab608a69ffd6c6544a116b695908b60d, type: 3}
   spawnRadius: 10000
-  spellInterval: 500
+  spellInterval: 2500
   spawnSkeletonDelay: 60
   projectileSpawnOffset:
     x:

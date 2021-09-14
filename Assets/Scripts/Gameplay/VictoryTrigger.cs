@@ -14,8 +14,13 @@ public class VictoryTrigger : LintBehaviour
 
     private int currentTeam;
 
+    private bool gameFinished = false;
+
     private void OnLintTriggerStay(LintCollider other)
     {
+        if (gameFinished)
+            return;
+
         Unit unit = other.GetComponentInParent<Unit>();
         if (unit)
         {
@@ -26,6 +31,7 @@ public class VictoryTrigger : LintBehaviour
                 {
                     captureValue = LintMath.Float2Lint;
                     onVictory?.Invoke(currentTeam);
+                    gameFinished = true;
                 }
             }
             else

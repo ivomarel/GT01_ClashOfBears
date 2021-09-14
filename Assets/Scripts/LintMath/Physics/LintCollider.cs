@@ -6,6 +6,7 @@ public class LintCollider : MonoBehaviour
 {
     public HashSet<LintCollider> CurrentTriggers;
 
+    public LintVector3 offset;
     
     public LintTransform lintTransform
     {

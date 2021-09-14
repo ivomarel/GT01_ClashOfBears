@@ -9,7 +9,7 @@ public class WitchUnit : Unit
     [SerializeField] private int spellInterval = 100;
     [SerializeField] private uint spawnSkeletonDelay;
     [SerializeField] private LintVector3 projectileSpawnOffset;
-    [SerializeField] private FireBallProjectile projectile;
+    [SerializeField] private Projectile projectile;
     [SerializeField] private ParticleSystem spellParticle;
     private uint lastSpellTime = LintTime.time;
     private Lint ogMoveSpeed;
@@ -38,6 +38,7 @@ public class WitchUnit : Unit
     {
         ogMoveSpeed = moveSpeed;
         moveSpeed = 0;
+        SetMoveSpeed(false);
         spellParticle.gameObject.SetActive(true);
         anim.SetTrigger("Skill");
 
@@ -64,6 +65,7 @@ public class WitchUnit : Unit
         SpawnUnit(skeleton, new LintVector3(spawnPosX, 0, this.lintTransform.position.z), LintVector3.zero);
 
         moveSpeed = ogMoveSpeed;
+        SetMoveSpeed(false);
     }
 
     /// <summary>
@@ -85,10 +87,11 @@ public class WitchUnit : Unit
     /// </summary>
     private void SpawnProjectile()
     {
-        var go = Instantiate(projectile);
+        Projectile go = Instantiate(projectile);
         go.lintTransform.position = this.lintTransform.position + projectileSpawnOffset;
-        go.lintTransform.radians = LintVector3.zero;
+        go.lintTransform.radians = LintVector3.zero;        
         go.lintTransform.radians.y = this.lintTransform.radians.y;
+        go.target = this.target;
         go.SpawnnerTeam = this.team;
     }
 

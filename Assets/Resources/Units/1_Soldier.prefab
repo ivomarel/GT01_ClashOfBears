@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2925646022489006617}
   - component: {fileID: 3997213461499666044}
   m_Layer: 0
-  m_Name: Soldier
+  m_Name: 1_Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,11 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position:
     x:
-      value: -44529
+      value: -76100
     y:
       value: 0
     z:
-      value: -51074
+      value: -133800
   radians:
     x:
       value: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSprite: {fileID: 21300000, guid: cd35c9c729d31694f853564a2d82514e, type: 3}
+  cost: 150
   UnitType: 0
   rotateSpeed:
     value: 150
@@ -104,11 +105,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85444ca4d74bb3441a8c4de3c70f1d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    x:
+      value: 0
+    y:
+      value: 5098
+    z:
+      value: 0
   extents:
     x:
       value: 3095
     y:
-      value: 11190
+      value: 5000
     z:
       value: 2272
 --- !u!95 &545557131426255020

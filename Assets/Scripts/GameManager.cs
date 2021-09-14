@@ -6,6 +6,9 @@ public class GameManager : Singleton<GameManager>
 {
     public Color[] teamColors;
     [SerializeField] private int _randomSeed;
+
+    public int money;
+
     private void Start()
     {
         Random.seed = _randomSeed; //establish a random seed to make the random always the same relative to the seed

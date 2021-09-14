@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BombExplosion : LintBehaviour
 {
+    public int damage = 50;
     private uint _lifespan = 5;
 
-    private void OnLintTriggerStay(LintCollider other)
+    private void Start()
     {
-        Unit unit = other.GetComponent<Unit>();
-        if (unit)
-        {
-            Destroy(unit.gameObject);
-        }
         Linvoke(DestroyExplosion, _lifespan);
     }
 
@@ -21,9 +17,8 @@ public class BombExplosion : LintBehaviour
         Unit unit = other.GetComponent<Unit>();
         if (unit)
         {
-            Destroy(unit.gameObject);
+            unit.OnHit(damage);
         }
-        Linvoke(DestroyExplosion, _lifespan);
     }
 
     private void DestroyExplosion()
